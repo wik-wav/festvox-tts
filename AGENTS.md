@@ -1,4 +1,4 @@
-# FestVox Development Guide
+# FestVox Speech GUI Development Guide
 
 ## Product priorities
 
@@ -22,4 +22,3 @@ requires avoidable regeneration.
 - Add focused performance or interaction regressions for diagnosed problems,
   then run the complete test suite. Do not trade synthesis correctness,
   language-specific prosody, or source-bank safety for speed.
-

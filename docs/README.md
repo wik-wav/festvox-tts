@@ -1,4 +1,4 @@
-# FestVox documentation map
+# FestVox Speech GUI documentation map
 
 This index is the documentation entry point. Operating guides and historical
 reports live together under `docs/`; new development reports belong under

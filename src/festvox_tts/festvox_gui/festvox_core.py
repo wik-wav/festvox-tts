@@ -1,4 +1,4 @@
-"""festvox_core.py -- backend for the Festvox Speech Synthesis GUI.
+"""festvox_core.py -- backend for the FestVox Speech GUI.
 
 Pure Python (no Qt) so every tricky part is unit-testable headless. This is
 the glue between the GUI and the REAL synthesis engine:

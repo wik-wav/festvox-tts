@@ -1,8 +1,8 @@
-FESTVOX SPEECH SYNTHESIS GUI
+FESTVOX SPEECH GUI
 CURRENT STATE, ARCHITECTURE, AND SYNTHESIS PIPELINE
 
 Snapshot date: 2026-07-23
-Application title: Festvox Speech Synthesis GUI v3.0
+Application title: FestVox Speech GUI v3.0
 Main platform: Windows desktop
 Festival platform: Ubuntu under WSL
 

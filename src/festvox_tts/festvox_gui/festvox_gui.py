@@ -10329,7 +10329,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.backend_err = None
         self.fest = fc.FestivalWSLBackend(cfg)  # real Festival inside WSL
         self.setWindowTitle(
-            "Festvox Speech Synthesis GUI v3.0 -- diphone + Festival/WSL")
+            "FestVox Speech GUI v3.0 -- diphone + Festival/WSL")
         self.resize(1024, 680)
         self._init_backend()
         self._build_menu()
@@ -11132,7 +11132,7 @@ class MainWindow(QtWidgets.QMainWindow):
         m_help = mb.addMenu("&Help")
         m_help.addAction("About", lambda: QtWidgets.QMessageBox.information(
             self, "About",
-            "Festvox Speech Synthesis GUI v3.0\n\n"
+            "FestVox Speech GUI v3.0\n\n"
             "PyQt5 + PyQtGraph front-end for the pure-Python diphone\n"
             "renderer and real Festival/UniSyn synthesis through WSL.\n\n"
             "Includes waveform-aligned timing, pitch and intonation\n"

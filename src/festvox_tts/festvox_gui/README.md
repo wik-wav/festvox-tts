@@ -1,4 +1,4 @@
-# Festvox Speech Synthesis GUI (PyQt5)
+# FestVox Speech GUI (PyQt5)
 
 A Windows-XP-styled desktop front-end with **two synthesis engines**, selected
 from the Engine dropdown:

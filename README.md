@@ -1,8 +1,9 @@
-# FestVox TTS
+# FestVox Speech GUI
 
-FestVox TTS is a Windows speech-synthesis editor and voice-building toolkit.
-It converts UTAU recordings and `oto.ini` timing into generated Festival and
-UniSyn voices, then lets you synthesize and edit speech through a PyQt GUI.
+FestVox Speech GUI is an independent Windows editor and voice-building toolkit
+for Festival and FestVox. It is not the FestVox project itself. It converts
+UTAU recordings and `oto.ini` timing into generated Festival and UniSyn voices,
+then lets you synthesize and edit speech through a PyQt GUI.
 
 The primary runtime is Festival inside WSL. English, Asaxi, and Japanese use
 separate linguistic frontends while sharing the same waveform, timing, pitch,
@@ -66,8 +67,8 @@ wsl --install -d Ubuntu
 Clone the repository and create a local virtual environment:
 
 ```powershell
-git clone https://github.com/wik-wav/festvox-tts.git
-cd festvox-tts
+git clone https://github.com/wik-wav/festvox-speech-gui.git
+cd festvox-speech-gui
 
 py -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip

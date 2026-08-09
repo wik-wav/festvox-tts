@@ -1,0 +1,35 @@
+{
+  "ab_fixtures": [
+    {"category": "high /i/ between voiceless consonants", "id": "suki_desu", "text": "\u597d\u304d\u3067\u3059\u3002"},
+    {"category": "high /u/ in a fricative context", "id": "tsukue_fuku", "text": "\u673a\u3092\u62ed\u304f\u3002"},
+    {"category": "high vowels plus a geminate", "id": "kutsu_tsukutte", "text": "\u9774\u3092\u4f5c\u3063\u3066\u304f\u3060\u3055\u3044\u3002"},
+    {"category": "high vowels and phrase-final context", "id": "kita_iku", "text": "\u5317\u3078\u884c\u304f\u3002"},
+    {"category": "high /i/: voiceless onset before /t/", "id": "i_stop", "text": "\u6a5f\u4f53\u3067\u3059\u3002"},
+    {"category": "high /i/: voiced onset before /t/", "id": "i_voiced_control", "text": "\u64ec\u614b\u3067\u3059\u3002"},
+    {"category": "high /u/: voiceless fricative onset before /k/", "id": "u_fricative", "text": "\u4ed8\u8a18\u3067\u3059\u3002"},
+    {"category": "high /u/: voiced onset before /k/", "id": "u_voiced_control", "text": "\u6b66\u5668\u3067\u3059\u3002"},
+    {"category": "fricative-vowel-fricative and geminate", "id": "sushi_tsukutta", "text": "\u5bff\u53f8\u3092\u4f5c\u3063\u305f\u3002"},
+    {"category": "consecutive possible devoicing", "id": "hitotsu_zutsu", "text": "\u4e00\u3064\u305a\u3064\u805e\u3044\u3066\u304f\u3060\u3055\u3044\u3002"},
+    {"category": "long vowel control", "id": "long_vowel", "text": "\u6771\u4eac\u3078\u884c\u3053\u3046\u3002"},
+    {"category": "geminate control", "id": "geminate", "text": "\u3053\u3053\u3092\u5207\u3063\u3066\u3002"},
+    {"category": "moraic nasal control", "id": "nasal", "text": "\u5065\u5eb7\u3067\u3059\u3002"},
+    {"category": "phrase-final timing", "id": "phrase_final", "text": "\u3053\u308c\u306f\u30c6\u30b9\u30c8\u3067\u3059\u3002"},
+    {"category": "retained fallback/ambiguous control", "id": "ambiguous", "text": "\u9774\u3067\u3059\u3002"}
+  ],
+  "ab_systems": [
+    {"devoicing_mode": "legacy", "devoicing_renderer": "auto", "duration_model": "legacy", "id": "legacy"},
+    {"devoicing_mode": "contextual", "devoicing_renderer": "shortened_voiced", "duration_model": "contextual", "id": "duration_only"},
+    {"devoicing_mode": "contextual", "devoicing_renderer": "auto", "duration_model": "contextual", "id": "contextual"}
+  ],
+  "config_id": "prompt19_japanese_duration_validation_v1",
+  "fixed_jsut_ids": [
+    "BASIC5000_0001",
+    "BASIC5000_0002",
+    "BASIC5000_0004",
+    "BASIC5000_0005",
+    "BASIC5000_0009",
+    "BASIC5000_0012"
+  ],
+  "holdout_policy": "fixed IDs are always excluded from fitting; additional held-out IDs are selected deterministically by utterance",
+  "schema_version": 1
+}

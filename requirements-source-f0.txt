@@ -1,0 +1,7 @@
+# Shared acoustic build dependencies: bank-scale phone-center join conditioning
+# and source-F0 fallback when a UTAU recording has no usable FRQ contour.
+# pyworld 0.3.5 still imports the legacy pkg_resources API, which setuptools
+# 81 removed.
+setuptools<81
+numpy>=1.26
+pyworld==0.3.5

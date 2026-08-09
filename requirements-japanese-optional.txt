@@ -1,0 +1,3 @@
+# Optional linguistic frontend. Japanese kana/romaji mode does not require it.
+# The application uses labels only and never uses its HTS waveform as output.
+pyopenjtalk==0.4.1

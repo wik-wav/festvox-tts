@@ -1,0 +1,479 @@
+# Asaxi prosody recording prompts
+# Format: prompt_id<TAB>recommended_takes<TAB>Asaxi
+
+asx_ctl_001	3	shěsonů.
+asx_ctl_002	3	zènáshěsonů.
+asx_ctl_003	3	pazènáchỏnů.
+asx_ctl_004	3	mmbănă.
+asx_ctl_005	3	gaviŕoŕo.
+asx_ctl_006	3	kozètètá.
+asx_ctl_007	3	to wo shěso ma.
+asx_ctl_008	3	no xogă?
+asx_ctl_009	3	no kvå xoxo?
+asx_ctl_010	3	ŕoŕo daohè!
+asx_ctl_011	3	haśùnáhè!
+asx_ctl_012	3	wo zèxăcè wő.
+asx_ctl_013	3	ăjo lem, måmå natăka!
+asx_idm_4931335fd873	3	fůjå ma.
+asx_idm_ac3a0517965e	3	gavină xogă.
+asx_idm_fa121cda1509	3	kozètètá ma.
+asx_idm_e40e4884c24d	3	måmå natăka.
+asx_idm_ccb72fc91239	3	pxỏmă fůmă.
+asx_idm_87e11fc8d115	3	sháŕo ma.
+asx_idm_d225dd41b6e2	3	tte pùŕima.
+asx_idm_480a2ad6cabf	3	tte xăcè.
+asx_idm_7d5d65b461ab	3	tte ŕima.
+asx_idm_6c8ab1ea3199	3	xi gavină.
+asx_lex_d7e1de145f33	2	mmbănă.
+asx_lex_578668dd5d2e	2	ox.
+asx_lex_64c3f71cc4f2	2	tëpỏ.
+asx_lex_7f13d396aac9	2	daonidao.
+asx_lex_7a699fd5c265	2	ŕasopŕoŕo.
+asx_lex_ac32a684915a	2	ná.
+asx_lex_e989ab0be0e1	2	kkè.
+asx_lex_0350e2034167	2	ŕoŕă.
+asx_lex_8ddfc29c20d6	2	ŕăvixů.
+asx_lex_a96740f6ba10	2	găxăni.
+asx_lex_c516562f5978	2	gaŕo.
+asx_lex_0af5583e85e8	2	xogăni.
+asx_lex_02d20a45dcd2	2	tamnishá.
+asx_lex_cf7101ea64e2	2	hùxaxaśbibåbå.
+asx_lex_a736d6cba280	2	sivëshá.
+asx_lex_38e953f1b6fe	2	gabåbåshá.
+asx_lex_3901a3037707	2	gabåbwoshá.
+asx_lex_440231bf702f	2	gajýnnshá.
+asx_lex_2eb78f54b71a	2	måniåkam.
+asx_lex_6330e6563961	2	nihèka.
+asx_lex_b5f7c5bb4230	2	tamỏbwopùxaśbibåbå.
+asx_lex_c1fc2c199d3c	2	papùxaśbibåbå.
+asx_lex_224e7f48c205	2	năbwonădăsùkină.
+asx_lex_cd10271d058b	2	pùtëbibåbå.
+asx_lex_4b06fc2eb61e	2	zèvoshů.
+asx_lex_73a0fbd93fee	2	ŕă.
+asx_lex_f898641862c3	2	fùcù.
+asx_lex_9ddc1992236c	2	såŕåshá.
+asx_lex_cc1c336f1d71	2	fgăŕo.
+asx_lex_557dc2066fa9	2	kŕùnýj.
+asx_lex_4a7dc1334fbc	2	mibo.
+asx_lex_3463b74e871f	2	bwonů.
+asx_lex_ba4c9a25d698	2	maaśù.
+asx_lex_294ccf0d5283	2	vå.
+asx_lex_ebb7571319eb	2	kiŕo.
+asx_lex_9545bcd418b9	2	kùkishá.
+asx_lex_96676a379f07	2	ỏbwonů.
+asx_lex_e727c5d9f5b3	2	kogo.
+asx_lex_5951ade324c1	2	fŕăfŕă.
+asx_lex_957a79296454	2	kùso.
+asx_lex_a442bb4d0ad2	2	tomo'.
+asx_lex_e5b2df2f5871	2	ŕămáka.
+asx_lex_2b80bb203d1e	2	shějýnkam.
+asx_lex_44eba2bca6a8	2	kèno.
+asx_lex_106792788fb1	2	zhåka.
+asx_lex_11d006c26525	2	tapù.
+asx_lex_90066c606c61	2	pỏmáka.
+asx_lex_af70fbb27448	2	gaxiro.
+asx_lex_a6e6188d5a29	2	těpỏ.
+asx_lex_28fe917cce72	2	poposhá.
+asx_lex_1aac7421cf88	2	ỏbwo.
+asx_lex_39ca13d36c82	2	måmå.
+asx_lex_92e841852461	2	săano.
+asx_lex_21582780fb4f	2	apo.
+asx_lex_1005ec471232	2	zá.
+asx_lex_f0aa8592b41b	2	kamshákam.
+asx_lex_6717b3c8f028	2	gokam.
+asx_lex_764de4e02619	2	fjonýj.
+asx_lex_e4ce51116319	2	vako.
+asx_lex_ee4d892ad50f	2	frënă.
+asx_lex_7cca4c3ee711	2	sigonů.
+asx_lex_481393821635	2	ijono.
+asx_lex_d523ed1ca80e	2	fůnono.
+asx_lex_7fbd9e48848f	2	xohù.
+asx_lex_49735b9edb5b	2	måmåni.
+asx_lex_c2eb7ce68a22	2	hùhù.
+asx_lex_73f751936323	2	onýj.
+asx_lex_462b2dbaa4d8	2	vèshů.
+asx_lex_9b17cdfff52c	2	iŕo.
+asx_lex_b3caccfee50e	2	niŕù.
+asx_lex_309788f0d0cc	2	tëko.
+asx_lex_9e3044c1483d	2	chỏno.
+asx_gra_6a63feaad91a	2	to apo gadă ů.
+asx_gra_2652201dd1f0	2	to john shějýnsháwů.
+asx_gra_c5e6d6fdaaf5	2	to wo kjèkiŕnů.
+asx_gra_4de11a8ddf84	2	to john wo apoxů.
+asx_gra_c8c2cbd9b7af	2	to wo gadăchů.
+asx_gra_068d32c39e8f	2	to fwoo gajýnnjů.
+asx_gra_103a6810ca28	2	to xő jýnsů.
+asx_gra_e00d70c8038a	2	toonă topo apozhů.
+asx_gra_469c4675e291	2	to kjèpo apa jýnma ja apoŕů.
+asx_gra_9f187ad8d8d0	2	to john shěso shěsonů.
+asx_gra_f7732180c49b	2	to john shěso shěsoxů.
+asx_gra_3dfc80fedefc	2	dhè kjèpo tom zèchỏnů.
+asx_gra_09aa9a7512c3	2	wo hèpăŕokă.
+asx_gra_beef3fb866d0	2	shěsonů.
+asx_gra_0c65684d3fc6	2	gavină ů.
+asx_gra_da04fcb43785	2	to john bă shějýnshá zèxăhèshěsonů.
+asx_gra_6c171dc99669	2	to john bă shějýnshá zèbăhèshěsonů.
+asx_gra_e1f268f5dbb3	2	to john bă shějýnshá zènáxăbăhèshěsonů.
+asx_gra_9b4b9d977bc8	2	to wo pashěsonů.
+asx_gra_5752150ede22	2	john hùpashěsonů, dzè shěsokam hùzèchěcho'.
+asx_gra_749aeb9545b6	2	to wo hùpaxoxo.
+asx_gra_355aa1456b11	2	to wo izozèshěsonů.
+asx_gra_09e33c0e1604	2	ă wo mijůchů.
+asx_gra_04771c039fb9	2	to shěso john sèŕa.
+asx_gra_993304cfe20b	2	to wo shěsokam izoŕa.
+asx_gra_adaf0bfe89d4	2	to apo john dåŕa.
+asx_gra_49c121536cd7	2	to gaoshěso john násèŕa.
+asx_gra_e3a12b578396	2	wo gaŕo xăizoŕa.
+asx_gra_c4b33d846877	2	apo gapo.
+asx_gra_0ff6f10bcbfe	2	john shánă.
+asx_gra_f06c590ce83d	2	to john gafůbåbå shá.
+asx_gra_705390626b96	2	to john hjihjină shá.
+asx_gra_a631e7331f39	2	to john gafůbåbå shá tte ŕima.
+asx_gra_8b67c8422658	2	to john dåni tom apa zèdao.
+asx_gra_9794dc5e63be	2	john ja tom dåni jýnma jágoma zèdao.
+asx_gra_2610384ce1d6	2	to john dåni tom, jerry ja barry apa zèdao.
+asx_gra_ad8a73e5a02a	2	to john dåni tom apa ja jága zèdao.
+asx_gra_9a4afc14e80d	2	to wo aśù dzè, haśùná.
+asx_gra_0b8028a39623	2	sèwo topo toponů, ninå wo shěsonů.
+asx_gra_cfe0e0a922ff	2	to wo haśù sèni, to wo aśùná.
+asx_gra_da679104b053	2	to wo nanå shěsonů.
+asx_gra_6f7dc385b8d4	2	to wo nåsi shěsonů.
+asx_gra_02dd44145d9d	2	to wo opùnå shěso shěsonů.
+asx_gra_329a9f7a331f	2	tom gajýnnshá niŕa.
+asx_gra_f506bd8cf597	2	to shosa siŕo niŕa.
+asx_gra_088b11b9d1ab	2	to wo gaŕo izoŕa.
+asx_gra_789d86648120	2	to mao o záŕa.
+asx_gra_377b171310d0	2	to å shěsonů pwo måmåŕa.
+asx_gra_821d27d014bb	2	mao xăsiŕo vaŕa.
+asx_gra_53188ea6ad53	2	dăŕobiwa sè simama ksùŕa sèŕa ken.
+asx_gra_8dc847be3470	2	toonýj shěso no-gă ỏnů.
+asx_gra_bf1d36b47c05	2	to shěso o-xiŕa.
+asx_gra_d2277069f722	2	mao xaŕa.
+asx_gra_4a17c24e7e1c	2	john shějýnshá zènèŕa.
+asx_gra_9d19892d215b	2	to shosa siŕo ni.
+asx_gra_00da1fc156ee	2	to shosa ni siŕo.
+asx_gra_0224e54e383d	2	to shěso sè john.
+asx_gra_44b0265261c9	2	to kjèkiŕo john dåŕa.
+asx_gra_245f6944e8fa	2	to kjèkiŕo då john.
+asx_gra_5663d79aed73	2	to john gaŕo izoŕa.
+asx_gra_011581e795bf	2	to john izo gaŕo.
+asx_gra_9fabab0d8af2	2	to mao zá o.
+asx_gra_0d2f694d01b7	2	to wo jåshěsonů.
+asx_gra_9ee09b1316b1	2	to wo zènájåijo.
+asx_gra_fd732def0d78	2	to wo xèshěsonů.
+asx_gra_2c90f153631c	2	to wo paxèhaśù.
+asx_gra_a9f0d3814e3a	2	wo ksá cè kkè?
+asx_gra_fc0ea2ebaf4b	2	no wo ijo kè?
+asx_gra_3b967071f4da	2	kè john zèxoxo?
+asx_gra_2555f2812bc1	2	ko panáshěsonů kè?
+asx_gra_9d80ebfac4d3	2	kshá shěsonů kè?
+asx_gra_f372c55f9e4c	2	no kjo ijo kè?
+asx_gra_967206982e6b	2	john ksi aśù kè?
+asx_gra_0b89412d7b3e	2	ko ksè xoxo kè?
+asx_gra_29f1a90a83d9	2	john ksá shěsonů kè?
+asx_gra_2f0d1fc0f7f0	2	kshá cè?
+asx_gra_4b43c43cef1f	2	wo kshá cèná.
+asx_gra_cc796270a4cc	2	john xoxo vå...
+asx_gra_adf5c0139ee3	2	john kvå xoxo?
+asx_gra_bd0db997d1d7	2	to wo anő shěsonů jå.
+asx_gra_8f922b5eece3	2	to wo anő shěsonů shěso jå.
+asx_gra_df84df59bfce	2	to wo nanå dănă aśù.
+asx_gra_7ac76d057f50	2	to john onådănă aśù.
+asx_gra_8438924d597f	2	to john sinåshěsonýj shá xiŕa.
+asx_gra_03de99d26a19	2	bi john zá tom apa dănă chỏnů.
+asx_gra_d68b38b3b946	2	ỏ john zá tom apa dănă chỏnů.
+asx_gra_0896abf77afc	2	nani john izo tom apa dănă chỏnů.
+asx_gra_6386191d81d9	2	pùni john izo tom apa dănă chỏnů.
+asx_gra_eb9fb0d47819	2	måniåkam xő pazènánixèshěsonů.
+asx_gra_6c71ba8e2552	2	vashěsokam, to wo ximă shěso gadăchỏnă shěsonů ŕa...
+asx_gra_8fb99db3c0c2	2	to wo niwo ijo.
+asx_gra_658dd131a9a4	2	to wa gőnigő ijo.
+asx_gra_9a4c164cf506	2	to wa zá gőnigő aśù.
+asx_gra_75ac14d7a1c9	2	to wo gajýnnshá niŕa dăxă.
+asx_gra_2da8aa97faf1	2	topo toponů pùxă.
+asx_gra_346f2ac24cc5	2	ko wő ijo xădăchỏxă.
+asx_gra_69e374984736	2	to wo shěsonů ken.
+asx_gra_c54a3092bff0	2	to wo shěsonů ken.ná.
+asx_gra_a4f7e2e96309	2	no shěso shěsonůxăkă.
+asx_gra_1d48b29736b9	2	apo chỏnůkă.
+asx_gra_ee1adf5c786a	2	no wo kăxijo.
+asx_gra_7fcace494ca1	2	kamm pănůxăkă.
+asx_gra_81658fd707e2	2	apo chỏnůnáxăkă.
+asx_gra_c7c26ba82219	2	kamm pănůnáxăkă.
+asx_gra_59caecb5ee40	2	dhè kjèpo tom bă kjèkiŕo zèchỏnů.
+asx_gra_c8441b2653fb	2	dhè shěso zètopù.
+asx_gra_6d0f44a93d01	2	dhè wo zèxijo.
+asx_gra_15e87b6f826d	2	tam pùfă.
+asx_gra_94e26336ccc1	2	xő shěsonů tozèůchů.
+asx_gra_b3ea317cfa82	2	ko kőnů topatohùfwo.
+asx_gra_45d0c4e91a4e	2	xő shěsonů sỏăůchů.
+asx_gra_005aaff20e65	2	xő shěsonů ăsỏxăhè.
+asx_gra_81ba9f9b8c5c	2	vakamshárokam, to wo ximă ronů.
+asx_gra_ba9af1fb8d8d	2	to wo tammă haśù.
+asx_gra_75e3fa0abbdd	2	to wo gămă shěsonů.
+asx_gra_ef7ae8e03959	2	to wo xi ni xi bwoŕů.
+asx_gra_66079f353bd2	2	to wo shěsonů wă.
+asx_gra_0b8b838a4dca	2	to wo haśù wë.
+asx_gra_77fde8eb78d5	2	to no xoxo nỏwë.
+asx_gra_24482fbebf15	2	shěsonů tomo nåhèhaśù!
+asx_gra_558472ffaabe	2	to wo panåshěsonů.
+asx_gra_125b73782af0	2	to pa siŕo xiŕa.
+asx_gra_21bb8e50603a	2	vazè, jomåsháwa zèvivinů.
+asx_gra_f845263ca149	2	vozè, to wo zèxogă.
+asx_gra_e568364efd67	2	nikpa, to wa pashěsonů.
+asx_gra_c2cdfb092a07	2	ńopa, to wa gavină paůchů.
+asx_gra_b2b28ff90743	2	kozèvkozè, ă ponă ŕimshá zèxiŕa.
+asx_gra_38c5541bfc1a	2	to john shěsonů naŕè.
+asx_gra_2d6aa7ccf24d	2	to john shěsonů nánaŕè.
+asx_gra_6548e8aa2802	2	to wo dasă śchinů.
+asx_gra_76bbf2eb1516	2	to shěso tam sè ŋo xiŕa.
+asx_gra_08a8bab8973f	2	to tobo tamda sè śchi.
+asx_gra_aab413c94ce1	2	to săsă-wao gavină xiŕa.
+asx_gra_dfd3092969da	2	to wo sỏni aśù.
+asx_gra_bfc72c94d269	2	ă wo no midăsùki.
+asx_gra_7b40a840c114	2	ă wa sỏtètáka.
+asx_gra_061b06208076	2	to john shěsonůná kè?
+asx_gra_36b8607ac3ec	2	ăjo john, nőjo!
+asx_gra_126d3a0c7727	2	sè wo zèvo wik.
+asx_gra_414434c9edea	2	sè no zèvo kjo?
+asx_gra_7d6d11e82860	2	ă no ksá?
+asx_gra_a70655dc910e	2	gavină.
+asx_gra_255902ca2fb2	2	dhè no?
+asx_gra_ab5f7153abff	2	ăjo!
+asx_gra_5c64ec2734c0	2	ni baai aśùhè, zå pjovină.
+asx_gra_1b6bdbcaa69a	2	daoŕo obi xiŕa.
+asx_gra_535559bce9f3	2	ă wo ŕochỏŕů.
+asx_gra_539631cc382b	2	ă wo zhýchů.
+asx_gra_025b5f9edc36	2	anő shěso nèŕa.
+asx_nat_bfda73d1d844	1	kozèvkozè, ă ponă gaksamipỏpỏ zèxiŕa, ŕa vanihèko xő xăjovină zèbů.
+asx_nat_96a4a002f1c2	1	xő bwona pỏnă zèbů — ksá pỏpỏ ů naŕè.
+asx_nat_528b2ef3bc59	1	sè daonoxi xinihè, xő sè onă bỏhjá aśpỏ xawo zèvanů, ja zhývă kjèbi sè xő tëa zèxỏnů vå, onă ijå xăjovină zèxiŕa.
+asx_nat_1df05a3a0c7d	1	va aśpỏ, pă nona zèxiŕa — gokaewa, gaxagikaewa, igùŕano ŕasopŕoŕo, gachőko gokaewa ja gaåka ýhýshá — dzè pỏpỏ năgavină să zèxiŕa.
+asx_nat_c8fd35a78e3f	1	nixå tam jhiwa onă bỏhjá ni xő zèsùkixů zå, mỏbama ja bỏbama ni anő komonů zèxogă, ŕa sè txenă shěno dănă jýno ja anő pỏkashů zèxiŕa, ŕa va sè jëný daona ijonů mmbă, dhè onă gaksamipỏpỏ zèxůxů.
+asx_nat_a8e770136f1b	1	nixå dănă å, xő va sè igùŕana nomáka si na sè hjávakam pùkŕo zèvivinů, ŕa kshá xa ăni xő dăgo ŕimaná.
+asx_nat_2582ac46c13d	1	xő hjină zèxiŕa, ŕa xő aksami să izoŕa sèwo, onýj dăgo daogo wëè igùŕana xő zèxajù.
+asx_nat_a21da06d1054	1	gaåka igùŕana xăŕèzinů ŕa pă sháma gőnigő zèxajù; hja jëný ŕimåa dăgo zèma, ŕa xăcèsháma zèbůwů.
+asx_nat_c937f376164f	1	onă fnè — xő nixå tam jëtxăa hùzèvivinů ŕa sè xő gámŕo dăgo hùzètákshù — izo hja onă jýno zètỏma, ŕa gămă ăni sè xő gùŕa zá zùný kozèný ijùna zèjýnů.
+asx_nat_00604a4da7a2	1	pỏpỏ wo să nono tambiwů tte ijù ken.ná, sèwo xő xăcèna pỏpa vivinů cèná; hja săsă zá vènopỏ nixő ůwů vata tte xő zèŕima, ŕa vènopỏ kozènýj xiŕa ŕa zá jëný sháma jo ijù nánaŕè tte xő zècő.
+asx_nat_4b7554244590	1	timothy xa — onă gavèno ŕăijoshá, alăna xodëa ma să, tètáŕona tákasháma xő zèkamŕů să — zèflamiŋnů ŕa wo zá xùjakam záŕa tte zèbůwů, chěxa xő nadăna ŕimåa ma naŕè zèxiŕa.
+asx_nat_25fe3f2cedba	1	ỏ hja săsă, dhè onă exený hjinýj pỏpỏ nixő fůsëona fůzèvonýj ůchů zèxăxè, ŕa onă ni xő gavină zèbů să shá kamnawopaoshá zèxiŕa.
+asx_nat_50655c53ed20	1	nani kamnawopao izo pă sháma săsă, va hjávakam nixå nadănă å zèvivinů.
+asx_nat_6dbfda0631b2	1	xő xătxănýj zèbů sèni, sè xő gacù pỏ okonoko zèvèshů ŕa onýj pùwo pỏbiwa zèdåmë, ŕa dhè sè xő dëŕă těpỏ dăgo — då anő nodobiŕů — hùzèkixa.
+asx_nat_78e66555a0d3	1	xő shánă zèxiŕa, sèwo xő gaåka igùŕana dăgo xogă, sivënů, zå sè hja åkamoba dzo' ŕa aimù hùzèxijo, ŕa hja igùŕana să xiŕa ŕa nåsi pă nono nániŕa tte xő zècè.
+asx_nat_09cb22a663c2	1	sèwo hjávakam-txaŕăijo xăsiŕoný xăjovină xiŕa, ŕa onă txăný shána kamnawopao ůwů zèvivinů igùŕana să ăni jo săsă cő.
+asx_nat_063a60ca81eb	1	„xăcènă kjo xiŕa?”
+asx_nat_dfc9bcc849c9	1	tte, gănå pỏpỏ zèkëjù — xa ba sè hjávakam ŕămáka, gja babů nivå, nana vakam binů ni xogă panå.
+asx_nat_45d6fa55c011	1	„xăcènă tte, ksá no kamŕů nèŕa,” tte kamnawopao zëjù.
+asx_nat_59cf0168350a	1	„jo onýj ni no xogă nono xiŕa.”
+asx_nat_2561adcb8da9	1	„hjá ni no nixå xădăna å sùkixů vå — igùŕanů då să ná, dzè xăsùkixů — zå no xăcèshá niŕa.”
+asx_nat_c689ceb75477	1	„jo aixa kè?”
+asx_nat_fd82db845736	1	tte pỏpỏ zèkëjù.
+asx_nat_6fea815d4d0b	1	„izånixå,” tte kamnawopao zëjù, sèwo xő onå xăcèno zëjù.
+asx_nat_ee9537bd6dec	1	„no xăcèshá xiŕa vå, anő aixa ăni no itákaná.”
+asx_nat_ab6bddba66bf	1	„jo săbam xogă kè — ksá anő ŕoka — si jonojo?”
+asx_nat_1781e48f3166	1	tte xő zèkëjù.
+asx_nat_a9f105b48ea7	1	„jo săbam xogăná,” tte kamnawopao zëjù.
+asx_nat_e457d84ba8ac	1	„no niŕa.”
+asx_nat_92dc23d6a281	1	„jo xădănă å wëè.”
+asx_nat_f73753c70c09	1	„ninå jo ni onă ală dzo' sháma, si ni onă sxëbony tama ma sháma, si ni onă dhè hjihjină sùva wëè sháma nanå xogăná.”
+asx_nat_d21868099394	1	opùnå, no xăcèshá niŕa måniåkam, dhè sè no těpỏ dăgo bă sùki hùzèvèshů, sè no mëja pădopù, sè no xodëa alănů, ŕa no xăksùnýj niŕa.
+asx_nat_0f8843b0cce3	1	dzè o-nona săsă itáka nỏwë, sèwo no xăcèshá săbam niŕa vå, no fůjovină ůjů ken.ná — då onă cőná sháma să.
+asx_nat_4afeec0f1c6f	1	„no xăcèshá xiŕa tte pùŕima?”
+asx_nat_ae3cd835ae95	1	tte pỏpỏ zëjù.
+asx_nat_000d44bfa911	1	zå wo jo ijù panå tte xő zèjå, sèwo kamnawopao aichů ken tte xő zèŕima.
+asx_nat_47874c04e248	1	dzè kamnawopao zèxånů să.
+asx_nat_b5c0da02b3c7	1	„sè onă bỏhjá bỏba wo zèxăcèků,” tte xő zëjù.
+asx_nat_165765969414	1	„jo xădăgo txăa hùwo zèxiŕa; dzè no xăcèshá săbam niŕa vå, no fůxăcèshá nanániŕa ken.ná.”
+asx_nat_1c31a82a8ebf	1	„jo onå måmåŕa.”
+asx_nat_583eff3ed8be	1	pỏpỏ dănă săfwù zèxopă.
+asx_nat_1216179bf906	1	o dhè xăcènă zèvonů txaŕăijo ni wo xogă panå nixå xădănă å tte xő zèŕima.
+asx_nat_065d8fb395cb	1	ă xő xăcèshá niŕa, ŕa jo ksá ůchů cè izovivi sỏjå; dzè onă ksùnýj niŕa ja mëja fùbiwa tákshù ŕimå exenýj zèxiŕa.
+asx_nat_b43ee4a73d59	1	wo — o-tètána nona ni wo xogăná chě — jo niŕa ken tte xő zèjå dăxă.
+asx_nat_ea56484136e2	1	ponă dhè nana zèvonů shá zèxiŕa, ko hjávakam zèxùja.
+asx_nat_e5b290b4dcb2	1	izånixå ko onă gă-igùŕana zèxijsha, ŕa izånixå — fůsèwo — ko dăfwù ůwů zègănů ŕa hja nini nomáka zèpùxa.
+asx_nat_76eaaa66e372	1	„anő binů” tte ko o zèzèvonů, ŕa igùŕana săsă ni jo zèkůxo — garo igùŕana nadăgo.
+asx_nat_46743d549fe6	1	pỏpỏ dăgo zèxitákaná, sèwo dhè xő gă-ni txo chěxa, xő pỏnă zèdopù.
+asx_nat_c7672edb8641	1	gănå xipùŕo, onă bỏhjá ni ỏbỏŕo xo nivå, xő onă zá xő onå nùnù gacùgo haoshá ijpù ken.ná zèbů.
+asx_nat_3146a4564403	1	nana ŕănabină zèbů, ŕa va sè nùnù å gacùgo haosháma ăxo nadănă xè zèxiŕa, sèni ko obi să zèmëjonů, ŕa sè igùŕana nomáka kem em.mo bů ijo vå, ko săbam zègùmë.
+asx_nat_ffce04a28c9b	1	„o,” tte ko zëjù, „sè no txănýj pỏpỏhjá tapùhè!”
+asx_nat_7c7c1b3503c7	1	„zá no nùnù då xő gavină paxiŕa!”
+asx_nat_a1fbf9b53ca2	1	ŕa ko pỏpỏ bă să mimi zèpăkŕaga, ŕa xő ni sè onă bỏhjá tëbiwa zètopù.
+asx_nat_beda4cb47561	1	nomao ja dăgo maa hùnă, onă gaksamipỏpỏ va sè onă bỏhjá ỏbỏŕo zènùnù.
+asx_nat_fe8553d6807d	1	vanihèko ă xő tètá sỏůchů, sèwo onă bỏhjá xő izovivi zèmùxa, ŕa izånixå xő na xő zèpxỏnů, ŕa izånixå xő xő pù ỏbỏ xăkobi zèpùxa sèni, pỏpỏ fwùxa ken.ná mebů.
+asx_nat_856629bb520d	1	ŕa ă xő nonýj va hjávakam gamaoŕă dăna åa ja zá kamnawopao jýna sỏjå — vå kamm săsă hjinýj zèbů.
+asx_nat_c708b392f84a	1	dzè ńopa ă xő ni jo nisùkixů, sèwo onă bỏhjá zá xő izozèjýnů, ŕa då xő pù săpỏno gavina cùŕa zèkamŕů — onýj „ksá onă xăcèna pỏpa vanů cùŕa” tte xő zëjù cùŕa.
+asx_nat_9c8636d91a2a	1	ŕa gja tamni, zá sùsù, jovina igùŕa zèma — vå nana ni sè ko chỏno hùzèxoxo ŕa maopjo na sè ŕămáka nonawo pjonů zèbăhè.
+asx_nat_50523a96ec8b	1	ŕa onă bỏhjá ni nùnù ochi vå, pỏpỏ pù sè xő hjinýj săană jëbo zèxỏbwonů ŕa zèxijoŕonů — sè onă bỏhjá tëa xő săsămao obi zèmùxa nivå.
+asx_nat_4a6615600c68	1	sèni å zèxopa, ŕa onă hjinýj pỏpỏ xămmbănă zèbů — xămmbănă sèni, ă xő sè xő jovina aksami pỏ nanå naksùnýj niŕa, sè xő dëŕă pỏbi alănů, ŕa gapiva săsă izo sè xő fù — ksi onă bỏhjá xő zèmùa — saza nåsi sỏijpù.
+asx_nat_a31ac5df67da	1	jëtxă zèxogă, ŕa gja va văŕo dăna xiwa zèma, sèwo dhè onă bỏhjá gă-ni xo chěxa, pỏpỏ xa zèxo.
+asx_nat_59afd5ac615c	1	xő va pŕoŕo zèxonů, na vivi zèkomonů, ŕa då xő — pù kŕahjákae bùŕo, hù sè piva bi — jovina txenshá-xăta zèkamŕů.
+asx_nat_325399d642f4	1	ŕa săbam, vå dhè onă bỏhjá ni chă săbam zèxăka, dhè pỏpỏ na vivi måmå hù xipùŕo xădănă å zèbăhè, ŕa nana zá pjobi xő ăxo zèxăhè — sèwo xő noxiŕa chěná, onă bỏhjá ni nùnù ochi ken.ná zèbů.
+asx_nat_3d83f06be76d	1	xő bă mè săsă ŕoŕonýj zèbů ja — bă anő ni onýj onă bỏhjá då xő va pivaŕo hùzèkamŕů cùŕa niŕo — xăcùnýj, ŕa nana zètètájýnů, ko xő bă sè ko papỏ tamo saza nivå.
+asx_nat_04e52c9f4808	1	„no sè no txănýj pỏpỏhjá ma xăhè!”
+asx_nat_f9ddbd5bf661	1	tte ko zëjù.
+asx_nat_aa0d33f94874	1	„dhè igùŕano să — onýj dănă jýno săsă, iŕè!”
+asx_nat_2ee0532732e5	1	onă bỏhjá va ỏbỏŕo zèxona ŕa sè xő tëa zèpăxè.
+asx_nat_bbca21f78276	1	onă hjinýj pỏpỏ no zèmi vå, ă xő mmbănă zèbů, sèwo onýj kamnawopao hùzëjù ijùna ămă xăcèno xiŕa tte xő zècè.
+asx_nat_37602b881fb4	1	onă hjávakam-txaŕăijo ni xő hùzèxogă, ŕa xő igùŕano vanå nèŕa.
+asx_nat_6a1aa532b9bf	1	xő xăcèshá zèxiŕa.
+asx_nat_b9d52ee65925	1	onă bỏhjá nixő jo hùzëjù.
+asx_nat_cb437c3978b8	1	nomao ă xő xămmbănă mibů sèni, nùnù ken.ná mebů, ŕa va sè xő hjinýj gavènopỏ mobo sùki xădăgo zèxo sèni, jo opaŕăpxa zèbů.
+asx_nat_d6d29c727981	1	ŕa ni sè xő gamemno mëja — onýj sè hja pjo kozè hùzètákshù mëja — sè shánă jovi ijå zèxogă, sèni nana xa pavwo xinihè jo zèxijpù, ko xő xapo vå, ŕa zëjù: „nonă txănýj pỏpỏhjá shěsonýj mëjoxů wő!”
+asx_nat_568bf0f441d4	1	nonă săatxă xăjovină zèxiŕa!
+asx_nat_bccaecccd542	1	ba onýj gja vanů kamm, kjèŕo zèxiŕa, ŕa va dăna săatxă xipùŕa, onă bỏhjá hù chă ni no igùŕanů då xo zèsùka.
+asx_nat_7236a88c4210	1	xő onă gaksamipỏpỏ zámaaśù, ŕa xő piva tăxo, si ỏ kjèpa tapùshá igùŕanů ni gănů panå, xő onå då pỏpỏ ỏ txepỏvă hjinýj baoŕo zèkamŕů — ksi xő waonă ůchů xăxă — sèwo xő gavimobonă hjinýj bỏhjá zèxiŕa ŕa pỏpỏhjá waonă ůchů zèsùka.
+asx_nat_658a7efb0379	1	gănå xipùŕo, pỏpỏ no shásnýj babů nivå — xő onă ỏ sè xő tëa va vivi ni-izo haśù kùgùwa ijonů nivå — xő tam siŕony sháma izo onă kjèna txepỏvă păŋawa zèxijo.
+asx_nat_7ddfde3d343b	1	gja nixő ůwů pỏpa zèxiŕa, dzè xăpỏna xăjënýj.
+asx_nat_d5e77c7a088f	1	dhè gja xăgavină kamŕů tte xăxiŕa, sèwo sè gja pỏbiwa dåmëná, ŕa gja xo vå, gja siŕonýj kxe zètxanů; să åkamm gja dăna hjinýj zèbů, ŕa pă åkamm bwona pỏnă — onå tambinů ná, ksá xő.
+asx_nat_8d5d7d830c5f	1	sè gja aśa na cù pỏnă zèxaśù, ŕa gja ni xő xăobi zèŋawa, sè gja fùwa fŕefŕenů nivå — pỏpỏ izovivi zèmëjonů, onă gaåka izo kbawo pădåmë ijo då, sèwo onă chåxa sháma opùnå anő ŕokano ma tte xő zècè.
+asx_nat_16aa054aa450	1	dzè xő jo ijo ken.ná zèbů.
+asx_nat_515e2a85e9af	1	gja săsă jënýj pỏpỏkxe zèxiŕa.
+asx_nat_e2bc73488e27	1	gja xő zèmëjonů, ŕa onă hjinýj pỏpỏ nagja zèmëjonů.
+asx_nat_3c9549ba3b8a	1	ŕa onå sè gja fùwa zèfŕefŕenů.
+asx_nat_d5fa1846dbb9	1	„no ksè xonaná ŕa zá wa igùŕanůná?”
+asx_nat_54ee685a02db	1	tte gőnă izo gja zèkëjù.
+asx_nat_b584e85bc69c	1	„ă wo jåná,” tte pỏpỏ zëjù, sèwo xő wo gaåka fůma cődao nỏwă zèbů.
+asx_nat_dd2406dfb937	1	„ho!”
+asx_nat_f9eb179ab2d0	1	tte onă pỏna pỏpỏ zëjù.
+asx_nat_78e420aee741	1	„jo xălănă xiŕa.”
+asx_nat_2503bcfc47ae	1	ŕa xő ni bawo dănă pỏpù ŕa na sè xő hùwaśbiwa zèchěto'.
+asx_nat_1baa47572644	1	„no ken tte wo cèvaná!”
+asx_nat_a3342617752f	1	tte xő zëjù.
+asx_nat_e4b0add43d43	1	„wo ken!”
+asx_nat_f3343f8c79d4	1	tte onă hjinýj pỏpỏ zëjù.
+asx_nat_41820f3de0e4	1	„nani wo izo nona săsă xa chåxa ken!”
+asx_nat_9775ba4a7ee7	1	vå onă bỏhjá xő txo tte xő zèjåka, dzè xő no ijù nỏwă zèbů.
+asx_nat_df561ae8f9ef	1	„na sè no hùwaśbiwa pỏpù ken kè?”
+asx_nat_d790cc5e307b	1	tte onă pỏna pỏpỏ zèkëjù.
+asx_nat_ab7cae6c0566	1	nonă pỏpỏ zhåxa kèno zèxiŕa, sèwo onă gaksamipỏpỏ hùwaśbiwa săsă fůma!
+asx_nat_0445737d8b45	1	sè xő hùwo izo să nono săsă kamŕů — ksá anő ihjáka-ỏbỏ.
+asx_nat_c15e3af4e1dd	1	xő ỏ txepỏvă hjinýj zèbabů, ŕa pă pỏpa ijpùná zèhjonů dăxă.
+asx_nat_e571922213af	1	„wo nỏwă!”
+asx_nat_3c8070022723	1	tte xő nazëjù.
+asx_nat_1bd52ecd7bac	1	dzè ispăný pỏpa xăsxëbony mëja ma.
+asx_nat_1f2026a6734a	1	ŕa onă o-pỏpỏ sè xő nodo zèpăxè ŕa zèmëjonů.
+asx_nat_6a2d96a4c2e4	1	„xő hùwaśbiwa săsă fůma!”
+asx_nat_84f7a7be46d9	1	tte xő zèxăja.
+asx_nat_41a4be369303	1	„gafůhùwaśbi pỏpỏ — iŕè!”
+asx_nat_ff4fdc86787d	1	ŕa xő zènixaxanů.
+asx_nat_fb8047e9db05	1	„wo ma!”
+asx_nat_7f37cc0fb0f0	1	tte onă hjinýj pỏpỏ zèxăja.
+asx_nat_b5720ad64026	1	„wo hùwaśbiwa ma!”
+asx_nat_8ba462941793	1	„wo na hja babů!”
+asx_nat_4c09fc595a1b	1	„zå hja păxèhè ŕa dåni wo dåmëhè — ksá o!”
+asx_nat_cff6e7cd1b8e	1	tte onă ispăný pỏpỏ zëjù.
+asx_nat_9ba8377b9b4a	1	ŕa xő zènifŕăfŕă ŕa zèniŕăaxaśù, måmå ă onă hjinýj pỏpỏ xăfŕăchů.
+asx_nat_ae36a761b1da	1	„ni anő ŕăaxaśù wo sùkaná,” tte xő zëjù.
+asx_nat_1c9e1de3d6b5	1	„hjinýj babů nawă!”
+asx_nat_044efe25dceb	1	dzè onå ă xő ŕăaxaśù izovivi mijå, sèwo siŕoný jëný pỏpůcho va xő zèhaśù, ŕa ă xő ksá o-pỏpa chåxa ken då, izo wao nono săsă dao xăxă mijůchů.
+asx_nat_40fbb33e55a6	1	onă siŕonýj pỏpỏ ŕăaxaśù tomo, ŕa xăobi zèxogă.
+asx_nat_780654a0ba16	1	xő nobam xăobi zèxogă sèni, sè xő dăna fùbiwa sè onă gaksamipỏpỏ mimi zèfùsa, zå xő sè xő fù săbam zèŕoka, sè xő mimiwa zèpexa, ŕa nihù zèchåxa.
+asx_nat_94cfd6ae271c	1	„xő ăviŋůná!”
+asx_nat_aade39c70033	1	„xő pỏpỏ săsă nèŕa!”
+asx_nat_0ce505d0ac34	1	„xő xăcènă nèŕa!”
+asx_nat_fb1aae43ca62	1	„wo xăcèshá xiŕa!”
+asx_nat_87bffdabaf10	1	tte onă hjinýj pỏpỏ zëjù, „wo xăcèshá xiŕa!”
+asx_nat_319bf192afcc	1	„onă bỏhjá no zëjù!”
+asx_nat_b905921caf26	1	ŕa xő niexù mebů.
+asx_nat_eccccff73289	1	ămă aśojýno zèxiŕa, ŕa onă bỏhjá obi zèhaśù, ŕa zá aśopaka ja gasi dëŕăa pjova, onă tam siŕony pỏpa zèchåxoxo.
+asx_nat_d74580f85d62	1	„naxogăhè ŕa zá wo igùŕanůè!”
+asx_nat_6cde8eef6b3f	1	„ox, naxogăhè!”
+asx_nat_a06c7c522325	1	„wo xăcèshá xiŕa tte wo xăcè!”
+asx_nat_20fc74647324	1	dzè năjù nèŕa; hjiny kùgùwa să ni-izo zèhaśù, ŕa txepỏvă — ksi onă tam siŕosháma hùzèxopa — ỏbỏnýj zèwaxa.
+asx_nat_7a76722e4b0f	1	onă gaksamipỏpỏ săsă shásnýj zèbů.
+asx_nat_faecfb2d4ba3	1	„ox, aŕa!”
+asx_nat_be0fe113d0db	1	tte xő zèŕima.
+asx_nat_6b85515f655b	1	„gja ksè no zèchåhaśù?”
+asx_nat_b2c6b7afd84a	1	„gja ksè chěto' ŕa zá wo jýnů ken.ná zèbů?”
+asx_nat_1ceb25d3dd7e	1	nixå dănă å xő xăhjinýj zèbabů, txepỏvă ijonů nivå, ŕa gja naxogă hjonů nivå.
+asx_nat_f87c247b4bcd	1	dzè gja nåsi zènaxogă, ŕa ńopa xi napùnýj zèxochi, hjiny gasi maőtxesháma zèpăjală, ŕa onă bỏhjá zèxogă ŕa xő ni waokam zèmaaśù.
+asx_nat_7f1db5fcf366	1	shăxiwa zèxopa, ŕa onă hjinýj pỏpỏ xătxăný xăksùnýj zèniŕa, dzè onă bỏhjá ni xő vanå izovivi zèsùkixů.
+asx_nat_cdd6b49bb9c1	1	xő ni xő izovivi zèsùkixů sèni, dhè sè xő fùbiwa săsă bă sùki zèvèshů, sè xő mimiwa gapiva sipỏ gaso zèniŕa, ŕa sè xő gacù ipa zèxiŕoshů.
+asx_nat_2aa5c440aef5	1	xő sè xő kxe zènikxeshů xa, ŕa xő pỏpỏ vanå mebůjůná — då onă bỏhjá să ná.
+asx_nat_35ddcee5cae4	1	då xő, pỏpỏ onå jovină zèxiŕa, ŕa onă hjinýj pỏpỏ nonă să ăni zèxitáka.
+asx_nat_3a632ff65511	1	xő ksá då pă sháma ůjů ăni xő zèxitákaná, sèwo onă hjávakam-txaŕăijo xő hùzèxăcèků, ŕa no xăcèshá xiŕa vå, anő ksùnýj itáka nỏwë.
+asx_nat_20a52b754023	1	zå, gănå xi, onă bỏhjá jaminýj zèniŕa.
+asx_nat_abeda6df1a20	1	sè xő mëfo xăchină zèniŕa, xő va nùnù zèjýnů, ŕa sè xő hjinýj kamshá xăŕăană zèbů sèni, xő pỏpỏ obi kma vå, jo pỏpỏ zèŕăxa.
+asx_nat_6009306ba6bc	1	siŕosháma va hjávakam zèxogă ŕa zèxoxo, pjo săsămao zèpjonů, ŕa ỏ jo săsă onă hjinýj gaksamipỏpỏ no zèbabů — pù săpỏno flamiŋshů — ŕa xő nåsi zèxo, sèwo gja wo ijpù chě, kshá wo chåmaaśù ken tte xő zèzhåka, ŕa onă bỏhjá wo wëè tte xő zècè.
+asx_nat_5f0a22d65ba2	1	jo dăna xèný å zèxiŕa, sèwo onă bỏhjá xăjaminýj zèbů sèni, igùŕanů ken.ná, ŕa ă onă hjinýj pỏpỏ — săsăxi fůxů — jo fůhjonă sỏůchů.
+asx_nat_b3833adcd9af	1	dzè xő vănýj zèxỏbwonů, ŕa onă onă bỏhjá navigavină niŕa, gja ni văŕo — ỏ piva ja itxesháma — pănů, ŕa va kŕahjákae bùŕo jovina igùŕa izozèma ksá — igùŕanů å zèxănăka.
+asx_nat_5decba0b1616	1	xő mmbăna nona săsăkxe zèŕimpù, ŕa onă bỏhjá pùtam-nùnù babů nivå, xő ni ỏbỏ obi zèŋawa ŕa hja ni sè xő mimi zèsùsù.
+asx_nat_862831b630f1	1	ŕa ńopa onă săaai zètxanů, ŕa onă bỏhjá navigavină zèniŕa.
+asx_nat_b6b1a93f38ac	1	xő va ỏbỏŕo xona ken ŕa pjonoshěsa ijonů ken zèbů — onă hjinýj pỏpỏ ba xő ỏbwonů nivå.
+asx_nat_13fa351dc736	1	ŕa gănå xi, gja xő xona ŕa kampỏnonů zèbăhè.
+asx_nat_8f297264113f	1	pjona xină xinihè zèxiŕa, ŕa pjokema dăgo em.mo zèbů.
+asx_nat_301c9dddc171	1	dhè onă bỏhjá — va txempỏ pỏka — ni xaembi hùzèmaaśù, ŕa onă hjinýj pỏpỏ ỏ săpỏno gùko zèbabů, ŕima nivå.
+asx_nat_b8b312e20adf	1	pwo onă bỏhjá ni ksùŕo hùpaxo.
+asx_nat_ed63da505068	1	nona săsă hùzèŕimpù, ŕa nå sè onă dokùshá xùjana xů să zèxiŕa.
+asx_nat_9fb5b7bfd295	1	gja ăni jo săsă zèjýnů — onă hjinýj pỏpỏ pù săpỏno babů nivå, sè xő těněn să pădåmë, ŕa zètaŕa.
+asx_nat_1215fbabb2b9	1	dhè vakam jamikùkishů paxiŕa, ŕa dhè onýj onă bỏhjá va ỏbỏŕo zá igùŕanů shěsa ja igùŕana săsă ŕăků xăhè.
+asx_nat_928d9db65f8b	1	„wå!”
+asx_nat_b9c9c13e0b1e	1	tte onă hjinýj pỏpỏ zèŕima.
+asx_nat_0a2fea9898e6	1	„pwo wa ni ksùŕo paxo!”
+asx_nat_876580778a67	1	sèwo onă bỏhjá ăni ksùŕo nanå izozèjýnů, ŕa ă pỏpỏ onă xogă dăna lola, hjiny sëokùkiwa, ja hùsokama ijo xădăgo sỏjå.
+asx_nat_d6e569b280d5	1	ămă nana xő zèxijpù.
+asx_nat_721ac31bb78e	1	„dhè sè xő txănýj pỏpỏhjá?”
+asx_nat_e5fb5ee915e2	1	tte ko zèkëjù.
+asx_nat_6c00610bff56	1	„nonă?”
+asx_nat_ff353a92edb5	1	tte onă dokùshá zëjù.
+asx_nat_f5006ab6f812	1	„jo sè gapo-săaai jamikùkiwa maka xiŕa!”
+asx_nat_16a88efb8446	1	„jo nå ŕăkůè!”
+asx_nat_68672ed2782e	1	„kjo?”
+asx_nat_bb4471e76b8e	1	„fůăvi!”
+asx_nat_eb7b8825a078	1	„dåni xő jënýj să tapùhè.”
+asx_nat_5f8a63320a38	1	„xő nonă ma vanå náxăhè!”
+asx_nat_7a20a426c546	1	sèni dhè onă hjinýj pỏpỏ — zá txăný pjonoshěsa ja fůnono dăgo — ni pỏmáka zètopù, ŕa ni sè văŕo tamo, hù kùkùkam, zèmaaśù.
+asx_nat_97caab35b7a3	1	no anő dăŕăa ŕů då gavină gă zèxiŕa, dzè onă văshá nobam xăxè zèbů sèni, jo xů ken.ná.
+asx_nat_ac441cf9a579	1	xő kaŕtèwa ckanů ŕa fasáma tănů zèxăhè, dzè wo pavwo xinihè jëný xogă ŕa jo săsă ŕăků tte xő zèdåka.
+asx_nat_44b550a0db42	1	nomao onă bỏhjá va pă vakam zènùnù, ŕa zá xő nùnù då jënýj pỏpỏhjá zèma.
+asx_nat_1aafb7c8e3de	1	jo jovină pỏpỏhjá zèxiŕa — săsă gasi aksami, zá xăcèna gasùno mëja — dzè onă bỏhjá xămmbănă zèbů sèni, ăni jo dăgo itákaná.
+asx_nat_2642b8025a63	1	sèwo pwo xő ni ksùŕo hùpaxo, ŕa nonă săbi xăjovină nono zèxiŕa sèni, xő ăni pă nono ŕima ken.ná zèbů.
+asx_nat_52ec0d824a87	1	ŕa onă bỏhjá nùnù, ăni ksùŕo ijoŕonů nivå, onă hjinýj pỏpỏ ỏ txăný pjonoshěsa, hù kùkùkam, zèbabů, ŕa ă xő xăshásnýj sỏůchů.
+asx_nat_8da11740fca1	1	dhè onă pỏmáka gùkoná zèbăhè, sèni — bă hjinýj waxa — xő sè xő těněn izo onă em.mo păxo ken ŕa pămëjonů ken zèbů.
+asx_nat_0dbcf61b15d9	1	xő hjinýj zèvexe, sèwo xő onå va ăvină ỏbỏŕo izozènùnù, ŕa måmå nå sè xő pỏ — bă mùxa — xăhjihjiný xăksùnýj hùzèniŕa sèni, jo xő vanå hkanůná.
+asx_nat_67b102714cc0	1	obi xő onă kŕahjákae bùŕo ijo ken zèbů — kjèna obinýj vivká, ksá săkjèŕo — va sè jo ŋè, xő va vkozèný xinihèwa zá onă bỏhjá izozèxigùŕanů.
+asx_nat_cefe575ad871	1	ă xő nona va văŕo dăna xiŕăna åa sỏŕima — gja ksá mmbănă zèbů!
+asx_nat_adc1fcca7110	1	ŕa dănă ai ni xő zèxogă.
+asx_nat_46d06e7676a3	1	hja săsă pa xő xopa toůchů — gőnigő najovină — onă va pivaŕo txenshá-xăta, onă va kjèŕo hjiny xipùŕa vå xő ỏ txepỏvă zèbabů ŕa hjiny kùgùwa na sè xő tëa zèhaśù; onă xăjovină xi vå xő bisă wo xăcèshá xiŕa tte zècè.
+asx_nat_eedd6ada452d	1	ă xő kamnawopao — shána ỏbỏnýj — ja onýj xő dåni xő hùzëjù săsă sỏŕima.
+asx_nat_bf5f45e5177d	1	dhè sùkixů, jovi tákshù, ja xăcèshá niŕa — jo săsă nokxe måmåŕa chě — kjo då gavină zèxiŕa kè?
+asx_nat_f345319eebe6	1	ŕa mëŕo — xăcènă mëŕo — pù sè xő hjinýj ksùnýj aksami fù zèŕoxo ŕa ni cù zèdopù.
+asx_nat_9b8e9fc441b8	1	zå siŕonýj nono zèxogă.
+asx_nat_775ca08515f3	1	sèwo ksi onă mëŕo zèdopù, piva izo cù zèjëvù — siŕonýj piva, onă va văŕo vivká pivama ůwů săsă ná.
+asx_nat_85b71e70c5da	1	jo hjiny gavisùgo-iŕony vètxewa zèma, ŕa ỏ vètxewa, piva ksá gaxiro ŕomaka.
+asx_nat_e931027b88f8	1	jo xăjovină zèxiŕa sèni, onă hjinýj pỏpỏ exù zèxůxů, ŕa no zèbabů să, jo ijonů nivå.
+asx_nat_06e6ff9d0afd	1	ŕa ńopa onă piva zèxem.mo, ŕa izo jo txenshá zèpăŕo.
+asx_nat_63eabd3e5fe8	1	va săsăwao, ko onă năjovină txenshá zèxiŕa.
+asx_nat_6c7731bbdd1c	1	sè ko kampỏno popogo ja mè izoŕa, piva ba sè ko nodo ja va sè ko těpỏ zèxiŕa, ŕa sè ko mëfo, onă năăvină piva săsă zëjů.
+asx_nat_7b1338517ba1	1	ŕa ko ni onă hjinýj pỏpỏ obi zèxogă, xő ni sè ko tëbiwa zèxapo, ŕa sè xő bă exù săsă ŕoŕonýj aksami fù zèmùa.
+asx_nat_e32e1129728a	1	„ăjo hjinýj pỏpỏ,” tte ko zëjù, „wo kshá xiŕa tte no cèná kè?”
+asx_nat_13f933bc59e7	1	pỏpỏ ni ko zèxamëjonů, ŕa wo sè ko mëfo hùzèxijo toůchů, dzè ksi — xő cèka ken.ná zèbů.
+asx_nat_0b1ec38191e8	1	„wo sè hjávakam-txaŕăijo txenshá xiŕa,” tte ko zëjù.
+asx_nat_ff5b712b05c9	1	„wo onă hjáma hùzèsùkixů igùŕana săsă sùva.”
+asx_nat_431245eab644	1	„hja txăný ksùnýj niŕa ja hjáma hja vanå wëèná vå, zå wo xogă, hja zámaaśù, ŕa hja xăcèků.”
+asx_nat_ab64b0d66f40	1	„hùwo wo xăcèshá zènèŕa kè?”
+asx_nat_7c041873357c	1	tte onă hjinýj pỏpỏ zèkëjù.
+asx_nat_8fe76cb00137	1	„då onă bỏhjá no xăcèshá zèxiŕa,” tte onă txenshá zëjù, „sèwo xő ni no zèsùkixů.”
+asx_nat_0055d4b9537e	1	„nå då gőnigő săsă no xăcèshá paxiŕa.”
+asx_nat_79199e2994bf	1	ŕa ko onă hjinýj pỏpỏ va sè ko tëbiwa obi zèkma, ŕa zá xő ni onă kjèŕo zèjală.
+asx_nat_ae7455fde754	1	nå pjonă zèbů, sèwo mao hùzèxona.
+asx_nat_8e20fb689def	1	kjèŕo săsă jovină zèbů, ŕa txepỏvă vètxewa gaxý maoro ůwů zèpjoŕů.
+asx_nat_213503ae1607	1	va onă viŕo ỏ kjèga, ispăný pỏpa zá sè gja ŋèwa na onă pỏna vivi zèŕăaxaśù, dzè gja onă txenshá ijo vå, gja săsă ŕăaxaśù tomo, ŕa va pŕo zèchěto', ko mëjonů då.
+asx_nat_bcc489dda714	1	„wo dåni na jënýj igùŕabashá zèmaxogă,” tte onă txenshá zëjù.
+asx_nat_b674df24ad23	1	„na ni xő xăgavină ůè, ŕa dåni xő onýj xő va pỏpỏwao cè wëè săsă cèdaohè — sèwo xő zá na găxăni pavivinů!”
+asx_nat_f537c2e0f514	1	ŕa ko onă hjinýj pỏpỏ nazèmùa ŕa xő na vivi zèpùto.
+asx_nat_bf66f820a218	1	„haśùhè ŕa igùŕanůè, ăjo hjinýj pỏpỏ!”
+asx_nat_4685e2e710e5	1	dzè onă hjinýj pỏpỏ să åkamm xăhjinýj zèbabů ŕa zèxoná.
+asx_nat_674934bb69ba	1	sèwo xő onă obi xő ŕăaxaśù ispăný pỏpa săsă ijo vå, xő ăni sè xő hùwaśbiwa săbam zècèka, ŕa xő gja xő izo să nono săsă kamŕů ijo nỏwă zèbů.
+asx_nat_3c46e2dbc505	1	xő onă txenshá xő nýjmåmåbam mùa vå, ko xő săsă hùzètxaků cèná zèbů.
+asx_nat_2a5b879743f7	1	ŕa xő no nixå dănă å babů xăxă — xăhjină, xo ken.ná — ămă nono sè xő fù pỏpů chěná, ŕa wo kjo xů ŕima panå, xő sè xő hùhjixaśbi zèxapo, jo kŕasa då.
+asx_nat_86c1af770208	1	ŕa xő wo hùwaśbiwa xăma!
+asx_nat_3277d67a49d8	1	zècèxa.
+asx_nat_decd7a16941f	1	ŋèný aksami ná — nå xő gacù pỏ zèma, pỏna pjonă; sè xő mimiwa bă nihja zèfŕefŕenů, ŕa sè xő fùbiwa xădăna zèbů sèni, hja vivi zèfùsa.
+asx_nat_c0396dfbcc7f	1	xő săbam zèchåxa, ŕa sè nona hùwaśbiwa nů mmbă xădănă zèbů sèni, xő na vivi zèchåxanů — ni bawo chåxa, fŕăfŕă ksá pă pỏpa — ŕa ă xő xămmbănă zèniŕa sèni, xő ămă onă txenshá ăxo då chěto' vå, ko hùzèchåxoxo.
+asx_nat_8c00e40a8455	1	xő ămă xăcènă pỏpỏ zèxiŕa — zá pă pỏpa waonă.
+asx_nat_f1efdf02df17	1	vănotxă ja zhýtxă zèxopa, ŕa va jëtxă, xiwa săana xină niŕa vå, onă bỏhjá ni onă hù kamm kjèŕo igùŕanů då zèpănů.
+asx_nat_cebcf4e47a67	1	ŕa xő igùŕanů nivå, tam pỏpa izo txepỏvă zèpăŋawa ŕa xő zèxijonů.
+asx_nat_e44d45eb054c	1	gőnă izo gja săsă gacù zèxiŕa, dzè onă pă pỏpỏ pù sè xő pỏ siŕony ipa zèma — kozè dhè xő ipoků, ŕa ipa vanå pădåmë xăxăŕa.
+asx_nat_e54f8c0834c2	1	ŕa ăni sè xő hjinýj pỏna fù ja pxỏny gamao mëja, waonă nono zèxiŕa, sèni onă bỏhjá nixő zèŕima: „wå, xő sè wo onă gă-pỏpỏhjá xăjů — onă vå wo gapo-săaai zèma, chåxoxo pỏpỏhjá!”
+asx_nat_4a4883fd3ca9	1	dzè xő nåsi zècè: jo xăxă sè xő pỏpỏhjá zèxiŕa — onă xő bisă xăcèshá niŕa baxů hjá ijo då hùzènaxogă.

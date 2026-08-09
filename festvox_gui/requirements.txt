@@ -1,0 +1,4 @@
+numpy>=1.23
+PyQt5>=5.15,<6
+pyqtgraph>=0.13,<1
+cmudict>=1.0

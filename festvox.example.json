@@ -1,0 +1,9 @@
+{
+  "_comment": "Copy to festvox.json for machine-local settings. Relative paths resolve from this directory.",
+  "output_root": "generated_voices",
+  "synth_output_dir": "rendered_audio",
+  "default_voice": "",
+  "default_lang": "en",
+  "synth_speed": 1.0,
+  "voices": {}
+}

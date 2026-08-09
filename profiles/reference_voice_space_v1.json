@@ -1,0 +1,157 @@
+{
+  "analysis_version": "prompt20-formants-v1",
+  "confidence_statistics": {
+    "accepted_frame_count": 4562,
+    "global_reference_ratio": {
+      "bootstrap_p025": 0.93193839,
+      "bootstrap_p975": 1.0183194,
+      "median": 0.99552116,
+      "sample_count": 11
+    },
+    "provided_neutral_dispersion_hz": 1015.6122755,
+    "provided_ratio_statistics": {
+      "bootstrap_p025": 0.99552116,
+      "bootstrap_p975": 1.08470024,
+      "median": 1.0003169,
+      "sample_count": 7
+    },
+    "provided_speaker_ratios": {
+      "provided_change-neutral-to-high": 1.0183194038068637,
+      "provided_change-neutral-to-low": 1.084700244940159,
+      "provided_high": 0.9955211582756126,
+      "provided_low": 1.1668416082627528,
+      "provided_neutral": 1.0003169019025853,
+      "provided_static-neutral": 0.9996832988238252,
+      "provided_sweep": 0.88231786474843
+    },
+    "reference_segment_count": 334,
+    "source_segment_count": 118,
+    "total_frame_count": 5294
+  },
+  "excluded_measurement_count": 732,
+  "expanded_max_ratio": 1.5,
+  "expanded_min_ratio": 0.65,
+  "formant_estimator": {
+    "crosscheck": "dynamic_order_burg_lpc",
+    "primary": "f0_adaptive_iterative_true_envelope",
+    "true_envelope_tolerance_db": 2.0
+  },
+  "identity_vocal_tract_ratio": 1.0,
+  "kind": "reference_voice_space",
+  "model_version": 1,
+  "per_vowel_limits": {
+    "a": {
+      "p05_ratio": 0.9319383891717172,
+      "p10_ratio": 0.9319383891717172,
+      "p90_ratio": 0.9319383891717172,
+      "p95_ratio": 0.9319383891717172,
+      "reference_ratio_statistics": {
+        "bootstrap_p025": 0.93193839,
+        "bootstrap_p975": 0.93193839,
+        "median": 0.93193839,
+        "sample_count": 1
+      },
+      "reference_segment_count": 1,
+      "source_dispersion_hz": 992.765629,
+      "supplied_reference_ratio_count": 0,
+      "supplied_reference_vowel": null
+    },
+    "e": {
+      "p05_ratio": 0.948894514800428,
+      "p10_ratio": 0.9688773620040786,
+      "p90_ratio": 1.1175567902691965,
+      "p95_ratio": 1.1421991992659746,
+      "reference_ratio_statistics": {
+        "bootstrap_p025": 0.99552116,
+        "bootstrap_p975": 1.08470024,
+        "median": 1.0003169,
+        "sample_count": 7
+      },
+      "reference_segment_count": 7,
+      "source_dispersion_hz": 1003.622609,
+      "supplied_reference_ratio_count": 6,
+      "supplied_reference_vowel": "e"
+    },
+    "i": {
+      "p05_ratio": 0.8797423765908918,
+      "p10_ratio": 0.8797423765908918,
+      "p90_ratio": 0.8797423765908918,
+      "p95_ratio": 0.8797423765908918,
+      "reference_ratio_statistics": {
+        "bootstrap_p025": 0.87974238,
+        "bootstrap_p975": 0.87974238,
+        "median": 0.87974238,
+        "sample_count": 1
+      },
+      "reference_segment_count": 1,
+      "source_dispersion_hz": 1020.289592,
+      "supplied_reference_ratio_count": 0,
+      "supplied_reference_vowel": null
+    },
+    "o": {
+      "p05_ratio": 0.9537828533013339,
+      "p10_ratio": 0.9537828533013339,
+      "p90_ratio": 0.9537828533013339,
+      "p95_ratio": 0.9537828533013339,
+      "reference_ratio_statistics": {
+        "bootstrap_p025": 0.95378285,
+        "bootstrap_p975": 0.95378285,
+        "median": 0.95378285,
+        "sample_count": 1
+      },
+      "reference_segment_count": 1,
+      "source_dispersion_hz": 1064.24931,
+      "supplied_reference_ratio_count": 0,
+      "supplied_reference_vowel": null
+    },
+    "u": {
+      "p05_ratio": 0.9606809006366933,
+      "p10_ratio": 0.9606809006366933,
+      "p90_ratio": 0.9606809006366933,
+      "p95_ratio": 0.9606809006366933,
+      "reference_ratio_statistics": {
+        "bootstrap_p025": 0.9606809,
+        "bootstrap_p975": 0.9606809,
+        "median": 0.9606809,
+        "sample_count": 1
+      },
+      "reference_segment_count": 1,
+      "source_dispersion_hz": 1063.4710694999999,
+      "supplied_reference_ratio_count": 0,
+      "supplied_reference_vowel": null
+    }
+  },
+  "population_claim": false,
+  "provenance": {
+    "anatomical_length_claim": false,
+    "kokoro_boundaries_are_silver": true,
+    "provided_data_primary": true,
+    "supplied_ratios_are_e_vowel_only": true,
+    "supplied_reference_vowel": "e",
+    "uniform_tube_formula_is_diagnostic_only": true
+  },
+  "range_basis": "the realistic range is the intersection of robust per-vowel speaker-median ratios; the supplied /e/ neutral/high/low/change ratios constrain /e/. The deliberately exaggerated 0.65-1.50 engineering range is separate from the observed references and remains bounded by envelope-gain, invalid-band, and Nyquist protection; final-waveform validation determines whether an endpoint is retained.",
+  "observed_expanded_max_ratio": 1.16684161,
+  "observed_expanded_min_ratio": 0.88083696,
+  "realistic_max_ratio": 1.05740237,
+  "realistic_min_ratio": 0.93363995,
+  "reference_dataset": [
+    "prompt20_supplied_references",
+    "Kokoro-Speech-Dataset-v1.3-xlarge"
+  ],
+  "reference_file_hashes": {
+    "1772943980982-kokoro-speech-v1_3-xlarge-flac.tar.gz": "71b019f1bc9489e303fb70ea51000dfd64c8646a2ad6ce660f7b21c763c01f77",
+    "change-neutral-to-high.wav": "5a1f64bc0c8f328e5d1b91fa11f36a37237acc7a07c8cbe0d6a63267fa7213e2",
+    "change-neutral-to-low.wav": "aafe752827aa023c573d65b8840065eb5627263a0e26583187b27a3c8164c236",
+    "high.wav": "f633fb52234d88ce7198709206fb1e9e40f6a64b01afeba81a2b7519b1318161",
+    "low.wav": "bd3b46f86be4d73240a17297c2da731db90446f6229c51629a5c41f8b68b8bc6",
+    "neutral.wav": "34e0a1da8892bf018595327465c2763960281903db1ed983818d09b48323309f",
+    "static-neutral.wav": "4e3424e0c65b549c400400d67a4dfef2d827441105a936ae3e21f4e50812ca42",
+    "sweep.png": "9679e533084005dd317292cd7ea97df05f67fd872174e4d27c000e338fa5179b",
+    "sweep.wav": "3462370f67a1f03fd743267f3a836b15461d87b32e6f149da5a401d56bfe9903"
+  },
+  "sample_rate": [
+    44100
+  ],
+  "source_speaker_id": "project_source_speaker"
+}

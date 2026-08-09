@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "language": "asaxi",
+  "model_id": "asaxi-hierarchical-log-f0-v1",
+  "model_version": 1,
+  "tone_goals_semitones": {
+    "H": 1.8,
+    "L": -1.2
+  },
+  "phrase_model": {
+    "declination_total_semitones": -0.9,
+    "later_phrase_declination_delta_semitones": -0.18,
+    "later_phrase_contrast_scale": -0.05,
+    "later_phrase_boundary_delta_semitones": -0.12,
+    "maximum_contextual_phrase_index": 3
+  },
+  "boundary_goals_semitones": {
+    "L%": -2.0,
+    "H-": 0.9,
+    "H%": 2.2,
+    "LH%_low": -1.4,
+    "LH%_high": 3.0
+  },
+  "boundary_model": {
+    "minimum_region_seconds": 0.12,
+    "preferred_region_seconds": 0.22,
+    "maximum_region_seconds": 0.32,
+    "statement_fall_max_semitones": 2.0,
+    "reset_strengths": {
+      "L%": 0.62,
+      "LH%": 0.44,
+      "H%": 0.36,
+      "H-": 0.18
+    }
+  },
+  "target_approximation": {
+    "response_time_seconds": 0.085,
+    "sample_step_seconds": 0.025,
+    "maximum_slew_semitones_per_second": 48.0
+  },
+  "safe_f0_hz": {
+    "minimum": 50.0,
+    "maximum": 500.0
+  },
+  "analysis_evidence": {
+    "status": "conservative_first_phonetic_realization",
+    "lexical_tone_evidence": "attested Asaxi H/L dictionary and corpus annotations",
+    "acoustic_fit": "not yet fitted to a recorded Asaxi prosody corpus",
+    "limitations": [
+      "No inferred discourse-level register drift is applied.",
+      "No prominence, focus, or microprosody contribution is invented.",
+      "Phrase-position variation is mean-centred within each phrase."
+    ]
+  },
+  "provenance": {
+    "implementation": "duration-sensitive critically damped target approximation",
+    "parameter_units": "speaker-relative semitones and seconds",
+    "manual_authority": "mora tone and cents edits are localized after automatic realization"
+  }
+}

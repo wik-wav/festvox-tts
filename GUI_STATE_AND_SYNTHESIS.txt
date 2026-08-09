@@ -1,0 +1,1126 @@
+FESTVOX SPEECH SYNTHESIS GUI
+CURRENT STATE, ARCHITECTURE, AND SYNTHESIS PIPELINE
+
+Snapshot date: 2026-07-23
+Application title: Festvox Speech Synthesis GUI v3.0
+Main platform: Windows desktop
+Festival platform: Ubuntu under WSL
+
+
+1. WHAT THIS SOFTWARE IS
+========================
+
+This is a desktop speech-synthesis editor for generated FestVox/UniSyn voices
+and FestVox-style diphone databases. It is written in Python with PyQt5 and
+PyQtGraph. Its main purpose is to make Festival speech generation editable on
+Windows without hiding the phonemes, timing, pitch, or source recordings used
+to produce the sound.
+
+The application is not merely a text box around Festival. A rendered sentence
+becomes an editable timeline containing:
+
+  - the waveform;
+  - real phoneme boundaries;
+  - editable phoneme labels;
+  - phone timing controls;
+  - generated and user-edited F0 contours;
+  - punctuation/intonation blocks;
+  - the exact recorded diphone take selected for each transition;
+  - sentence, phrase, speaker, dictionary, and fault settings.
+
+The current runtime has two main tabs:
+
+  Speech     - detailed editing of one active sentence.
+  Sentences  - management, generation, playback, ordering, and export of a
+               multi-sentence project.
+
+Song mode and MIDI import are not part of the current runtime. Their retained
+design brief is in SONG_MODE_FUTURE.md. This distinction matters: screenshots
+or old prompts showing a Song tab describe a future or superseded design, not
+the application that currently runs.
+
+
+2. CURRENT IMPLEMENTATION STATE
+===============================
+
+The Speech editor is functional and includes:
+
+  - Text and direct Phonemes input modes.
+  - English, Asaxi, and Japanese routing.
+  - Pure-Python diphone synthesis.
+  - Real Festival/UniSyn synthesis through WSL.
+  - Generated Festival voice registration beneath one Windows root, with WSL
+    runtime paths derived internally and legacy WSL-only entries preserved.
+  - Waveform zoom, horizontal scrolling, selection, and playhead control.
+  - Playback from the current playhead; Space pauses/resumes at that point.
+  - Optional follow-playhead paging.
+  - Draggable phoneme boundaries and editable phone fields.
+  - Timing, Pitch, Intonation, Recordings, and contextual Japanese Accent
+    parameter views.
+  - Continuous pitch-curve editing with generated F0 shown underneath.
+  - Punctuation-level intonation blocks.
+  - A vertical pitch zoom control and pitch reference grid across the editor.
+  - Per-occurrence manual recording-take selection.
+  - Context-sensitive automatic recording-take selection.
+  - English light/dark L context selection.
+  - Voiced-sibilant context protection.
+  - Output gain with measured anti-clipping limits.
+  - Undo/redo and configurable shortcuts.
+  - Project save/load and cached sentence audio.
+  - Bounded Audio, Voice, and Model caches with memory-only clear controls.
+  - Individual, selected, batch, and merged WAV export.
+  - Safe generated-voice removal with strong confirmation.
+  - Diagnostic Fault Mode controls.
+
+The Sentences editor supports independently stored sentences and phrases,
+speaker and dictionary routing, ordering, copy/cut/paste/duplicate, grouped
+selection, playback, generation, removal, and export.
+
+The automated suite covers core/GUI behavior, the English UTAU converter and
+builder, the read-only Japanese analyzer, Japanese frontends/model, candidate
+compiler, Festival planner/compiler, Japanese edit-state workflow, acoustic
+quality metrics, optional baseline providers, deterministic source routing,
+and release checks. The
+optional pyopenjtalk integration skips cleanly when that package is absent; the
+current local Python 3.14 environment has pyopenjtalk 0.4.1 and runs all 29
+frontend tests. Live WSL tests also exercise real Festival rendering.
+Tests do not replace listening tests, especially for recording choice, joins,
+and long time-stretches.
+
+
+3. IMPORTANT FILES
+==================
+
+99_Tools/festvox/festvox_gui/festvox_gui.py
+  The PyQt5/PyQtGraph application. It owns controls, timeline interaction,
+  playback, sentence state, undo, menus, pending-action state, and visual LOD.
+
+99_Tools/festvox/festvox_gui/festvox_core.py
+  The non-Qt synthesis layer. It contains both backends, Festival/WSL process
+  handling, phone and pause planning, recording selection, pitch/F0 utilities,
+  time stretching, WAV IO, project IO, and safety validation.
+
+99_Tools/festvox/build_festival_voice.py
+  Builds a real Festival UniSyn TD-PSOLA voice from a converted database or
+  directly from a read-only UTAU bank. It creates pitchmarks, indexes, metadata,
+  phonesets, language front ends, and Festival Scheme.
+
+99_Tools/festvox/utau2festvox.py
+  Converts UTAU oto.ini data and WAV sources into the diphone database and
+  numbered-alternative metadata used by the builder and pure-Python engine.
+
+99_Tools/festvox/japanese_utau.py
+  Read-only phase-0 Japanese bank analyzer. It strictly decodes UTF-8/CP932,
+  preserves source hashes and exact aliases, reports malformed OTO data, and
+  classifies per-alias CV, VCV, and CVVC evidence. It does not build audio.
+
+99_Tools/festvox/test_japanese_utau.py
+  Synthetic regression coverage for encoding, normalization, diagnostics,
+  affix order, bank classification, provenance, and source write protection.
+
+99_Tools/festvox/japanese_models.py
+  Provisional typed Japanese phone, mora, accent-phrase, phrase, utterance, and
+  frontend-diagnostic model. Accent nuclei are zero-based internally.
+
+99_Tools/festvox/japanese_kana_frontend.py
+  Dependency-free kana/romaji frontend with explicit unknown-kanji and missing
+  lexical-accent diagnostics.
+
+99_Tools/festvox/japanese_openjtalk.py
+  Optional pyopenjtalk linguistic adapter and named A/F/I/K full-context parser.
+  It does not request Open JTalk waveforms, durations, or F0.
+
+99_Tools/festvox/japanese_frontend.py
+  Explicit auto/openjtalk/kana dispatcher used by the Japanese GUI route.
+
+99_Tools/festvox/test_japanese_frontend.py
+  Static label fixtures and deterministic model, fallback, dispatcher, accent,
+  boundary, provenance, unknown-phone, and English-isolation coverage.
+
+99_Tools/festvox/JAPANESE_PHASE1_IMPLEMENTATION.md
+  Exact Phase 1 API/model, dependency behavior, label assumptions, limitations,
+  test result, and Phase 2 boundary.
+
+99_Tools/festvox/japanese_profiles.py
+  Read-only Phase 2 bank-profile inference/serialization, exact alias overrides,
+  OpenUtau subbank metadata, bank-specific moraic-nasal allophone routes,
+  relative provenance, and source write guards.
+
+99_Tools/festvox/japanese_candidates.py
+  Deterministic Phase 2 CV/VCV/CVVC candidate graph, stable IDs, alternatives,
+  unresolved preservation, mixed-family ranking, and coverage reports. An
+  explicit CVVC profile keeps ordinary VCV mora rows traceable but
+  non-selectable, while CV, VC/VV, release, and incoming special-mora
+  transition rows remain runtime material.
+
+99_Tools/festvox/test_japanese_candidates.py
+  Deterministic profile, role, provenance, coverage, safety, and isolation tests.
+
+99_Tools/festvox/JAPANESE_PHASE2_IMPLEMENTATION.md
+  Exact Phase 2 APIs, model, real-bank coverage, determinism, limitations, and
+  Phase 3 boundary.
+
+99_Tools/festvox/japanese_festival.py and japanese_synthesis.py
+  Separate Japanese Festival/UniSyn compiler and explicit phone/timing/F0/unit
+  planner. Japanese never enters the English phoneset or entry point.
+
+99_Tools/festvox/source_window.py
+  Shared English/Asaxi/Japanese source-window policy. Adaptive builds cap
+  ordinary source halves at 60 ms by default, retain deterministic full-side
+  variants for long target phones, and apply window selection only after
+  contextual/manual recording selection. Bounded and legacy-full modes
+  provide reversible A/B builds. Japanese VCV phrase-start vowels use OTO
+  preutterance as onset and contribute no medial unit.
+
+99_Tools/festvox/japanese_assembly.py and japanese_assembly_listening.py
+  Corrective CV/VCV/CVVC source assembly audit. It mirrors automatic Festival
+  selection, exposes every alias/OTO/source slice, enforces one shared
+  consonant center, keeps phrase-start rows out of medial positions, treats
+  `* V` as an OTO-timed vowel blend, routes configured moraic-N allophones on
+  both edges, identifies visible fallback, and renders the ignored
+  human-comparison corpus. Current Japanese voices select these roles inside
+  their generated UniSyn hook; the GUI backend forwards only explicit manual
+  choices instead of pre-pinning edges with the English take selector.
+
+99_Tools/festvox/japanese_editing.py
+  Project overlay, migration, accent nucleus and phrase-structure edits,
+  per-mora pitch, optional baseline settings, read-only bank preview, and
+  rebuild-versus-rerender policy.
+
+99_Tools/festvox/japanese_quality.py
+  Phase 5 generated-copy join measurements and timestamp-free,
+  content-addressed report cache. It never measures or writes source-bank WAVs.
+
+99_Tools/festvox/japanese_refinements.py
+  Optional structural/Open-JTalk-label/external-HTS-JSON baseline providers and
+  explicitly experimental deterministic multipitch/voice-color routing. Stable
+  GUI planning disables the latter; manual occurrence choices always win.
+
+99_Tools/festvox/japanese_release.py
+  Deterministic dependency, bundled-asset, and license-inventory checks. It
+  separates implementation readiness from legal redistribution readiness.
+
+99_Tools/festvox/join_discontinuity.py
+  Read-only, exact-handoff analyzer for level, sample/derivative, voiced period,
+  F0, phase, period shape, local spectral trajectories, and multiresolution
+  broadband impulse evidence.
+
+99_Tools/festvox/join_spectrogram.py
+  Read-only waveform/STFT export with problem triangles, handoff spans, an
+  aligned phone strip, stop/closure context tinting, and an embedded legend.
+
+99_Tools/festvox/JAPANESE_PHASE3_IMPLEMENTATION.md and
+JAPANESE_PHASE4_IMPLEMENTATION.md and JAPANESE_PHASE5_IMPLEMENTATION.md
+  Exact generated-voice, GUI editing, refinement, safety, and release contracts.
+
+99_Tools/festvox/JAPANESE_DEPENDENCIES_AND_LICENSES.md and
+JAPANESE_RELEASE_CHECKLIST.md
+  Tested dependency origins, licenses, known release blockers, and a packaging
+  checklist. No dictionary, HTS model, or UTAU voice is bundled by this project.
+
+99_Tools/festvox/JAPANESE_UTAU_INTEGRATION_DESIGN.md
+  Researched 24-section architecture, compatibility boundary, primary sources,
+  licensing risks, and phased implementation plan for full Japanese support.
+
+99_Tools/festvox/voice_manifest.py and voice_paths.py
+  Shared source-bundle/configuration identity, canonical Windows registration,
+  WSL boundary conversion, output protection, and legacy path migration.
+
+99_Tools/festvox/UNIFIED_VOICE_BUILDER.md
+  Primary Windows build commands, language/bank-type isolation, smoke tests,
+  output identity, safety rules, and GUI registration behavior.
+
+99_Tools/festvox/festvox_gui/config.json
+  Persistent GUI configuration: engine, languages, registered voices, pitch,
+  speed, gain, portrait mappings, dictionaries, shortcuts, and fault settings.
+
+99_Tools/festvox/festvox_gui/README.md
+  Detailed operating documentation and troubleshooting.
+
+99_Tools/festvox/README.md and GUIDE.md
+  Toolchain overview and build/use guide.
+
+99_Tools/festvox/MULTISYN.md
+  The separate path for true corpus-based Festival Multisyn voices.
+
+
+4. THE TWO SYNTHESIS ENGINES
+============================
+
+4.1 Pure-Python diphone engine
+------------------------------
+
+This engine runs on Windows without Festival. DiphoneBackend loads the existing
+synth_diphone.py implementation and a FestVox-style database containing
+dic/diphone_index.json and WAV material.
+
+At a high level it:
+
+  1. Converts text to phones using the selected language front end.
+  2. Applies user dictionary entries when present.
+  3. Forms adjacent phone pairs (diphones).
+  4. Looks up each pair in the database.
+  5. Selects numbered alternatives from recorded context where available.
+  6. Cuts the recorded material around its stored transition midpoint.
+  7. Stretches phone regions to their requested duration.
+  8. Blends neighboring pieces and de-clicks joins.
+  9. Returns samples, phone segments, missing-unit information, and selections
+     to the common GUI editor.
+
+It is useful when Festival is unavailable and for directly inspecting the
+converted diphone database. Festival/UniSyn is the main path for real PSOLA F0
+regeneration and generated Festival voices.
+
+4.2 Festival through WSL
+------------------------
+
+FestivalWSLBackend starts wsl.exe and runs Festival in batch mode. A temporary
+Scheme job is written to a Windows/WSL exchange directory. The job:
+
+  - adds the selected voice directory to Festival's load path;
+  - loads the generated voice Scheme;
+  - selects the language-appropriate voice function;
+  - applies dictionary additions and unit overrides;
+  - constructs or synthesizes the utterance;
+  - saves the WAV;
+  - saves phone segments;
+  - prints F0 targets and selected outgoing units for the GUI to parse.
+
+The GUI then reads those outputs into one Synthesis object. The temporary job
+and exchange files are not the voicebank and are not treated as source data.
+
+
+5. INPUT AND LANGUAGE ROUTING
+=============================
+
+5.1 Text mode
+-------------
+
+English:
+  A current generated English configuration exposes one declared
+  voice_<name> entry point. It uses the CMU lexicon, POS, phrasing, duration,
+  and F0 models associated with Festival's English front end while rendering
+  through the selected voice's units. Historical combined Asaxi/English voices
+  may expose voice_<name>_en; the GUI retains that compatibility route.
+
+Asaxi:
+  The generated voice's own phoneset is used, while the deterministic
+  synthesis dictionary and Python frontend supply G2P, expression matching,
+  morphology, morae, and lexical/utterance H-L planning. Input is lowercased
+  at the language boundary, before Festival or the dependency-free backend,
+  so sentence capitalization cannot remove phones. Festival first supplies
+  the exact supported phone sequence. Before that handoff, the selected-bank
+  adapter keeps canonical compact palatal phones when their diphones exist and
+  expands an unsupported transition through a fully verified C-y, y-y, y-V
+  path. It refuses partial fallback chains, records the decision, and never
+  rewrites an explicit user pronunciation. The provisional
+  asaxi-moraic-rules-v1 planner then divides an approximate mora beat among
+  onsets, nuclei, and codas using phone-class priors, special handling for
+  syllabic nasals and geminates, partial CV compensation, and bounded
+  phrase-final lengthening. Pause timing remains punctuation-driven. The
+  Asaxi accent planner aligns its targets to that final timeline and the
+  versioned asaxi-hierarchical-log-f0-v1 realization creates one continuous
+  speaker-relative log-F0 plan for the sentence. H/L remains categorical;
+  phrase shape, carried F0/slope, boundary reset, extended boundary events,
+  and duration-sensitive target approximation determine the acoustic curve.
+  Contextual phrase components are mean-centred and cumulative frequency drift
+  is forbidden. Re-render repeats the linguistic analysis on the exact edited
+  segment durations, uses this same final-timing planner, and never adopts new
+  phone lengths. Mora edits use a localized envelope, so one offset is not
+  redistributed across the sentence. The deterministic prosody_trace retains
+  every component and realized target. See ASAXI_DURATION_MODEL.md and
+  ASAXI_PITCH_REALIZATION.md.
+
+  The existing Pitch accent and Mora voicing Parameter Editor entries dispatch
+  to an Asaxi editor for Asaxi Text input through an Asaxi-compatible
+  Festival/WSL voice. Pitch accent exposes word-bracketed mora blocks, a
+  connected inferred/manual H/L contour, and pitch offset. Mora voicing exposes
+  the same blocks with one automatic/manual voicing value; there is no separate
+  Breathiness control. Waveform and block selection share mora spans. Edits
+  support multi-selection, Reset, undo/redo, project persistence, and normal
+  Re-render invalidation. The controls are hidden for other languages without
+  deleting their language-specific Asaxi state.
+
+  Automatic phonation currently implements the documented optional vowel
+  devoicing between voiceless obstruents and the x aspiration environment.
+  Other x and the ox interjection receive conservative aperiodicity defaults,
+  folded into the automatic mora-voicing value. The predictor stops at pauses,
+  retains phonological H/L on a devoiced mora, and records its reason and
+  automatic/final values. Mora controls feed the shared source-filter renderer
+  once on the final sentence timeline; they do not replace a vowel with raw
+  noise. A block voicing edit updates the dashed generated curve immediately;
+  the waveform remains pending until Re-render.
+
+Japanese:
+  Text is analyzed through the explicit auto/openjtalk/kana dispatcher. A local
+  pyopenjtalk installation provides kanji morphology and lexical accent; the
+  deterministic kana/romaji fallback reports unsupported kanji and unavailable
+  lexical accent. The canonical utterance is converted into a version-2
+  explicit phone/duration/F0/unit plan and sent only to a generated Japanese `*_ja`
+  Festival/UniSyn voice. Contextual source halves meet at one phone center;
+  missing pure-CV transitions use labeled bounded bridges rather than the
+  Festival default-silence fallback. Exact contribution plans remain available
+  for diagnostics and Recordings-view integration. A non-Japanese runtime
+  index is rejected. The Speech parameter editor exposes time-aligned morae,
+  accent-phrase brackets, directly draggable nucleus markers, split/merge,
+  unaccented state, and per-mora cent offsets. Waveform selection, mora
+  selection, horizontal navigation, and the playhead share one seconds map.
+  Full-width Japanese punctuation splits GUI phrase state even when no
+  whitespace follows it.
+  Question shape remains exclusively in Intonation blocks. ASCII and Japanese
+  full-width punctuation are normalized to the same block kinds. Voicebank analysis remains
+  read-only and preserves unresolved aliases for exact external profile
+  overrides. Optional baseline controls can reanalyze Open JTalk labels or
+  consume an explicit external HTS trajectory JSON. Multipitch and voice-color
+  metadata is retained for explicit experimental APIs, but those controls and
+  routing are disabled in the stable GUI; build separate generated voices.
+  See JAPANESE_PHASE1_IMPLEMENTATION.md through
+  JAPANESE_PHASE5_IMPLEMENTATION.md and JAPANESE_ASSEMBLY_REMEDIATION.md.
+
+Inline [phones] and [pau] may be mixed into supported text workflows. User or
+installed dictionaries can replace word pronunciations without modifying the
+source UTAU bank.
+
+5.2 Phonemes mode
+-----------------
+
+The user enters a space-separated phone sequence directly. The GUI supplies
+class-based durations instead of accepting Festival's old fixed 100 ms phone
+defaults. Pitch and Fall are also applied in this mode.
+
+Direct phone names must exist in the selected Festival voice's phoneset.
+Festival is intentionally strict here; an unknown phone produces an error
+instead of silently changing the requested sequence.
+
+
+6. GENERATED VOICE BUILDING
+===========================
+
+The primary build_festival_voice.py interface requires:
+
+  --language    ja, en, or asaxi;
+  --bank-type   cv, vcv, cvvc, or arpasing as appropriate;
+  --samples     the read-only Windows recording root;
+  --oto         exactly one OTO file or one explicitly selected pitch folder;
+  --output      one Windows generated-voice folder;
+  --name        one Festival-safe generated name.
+
+The old --db and --utau forms remain compatibility inputs for existing
+workflows. New voices use the language-scoped interface documented in
+UNIFIED_VOICE_BUILDER.md.
+
+The UTAU source is input only. Conversion and generation write into the chosen
+output folder, not into oto.ini or source WAVs.
+
+The builder performs these major steps:
+
+  1. Validates source/output separation, explicit OTO scope, and overwrite
+     protection.
+  2. Routes English/Asaxi through ARPAsing or Japanese through the isolated
+     CV/VCV/CVVC candidate and assembly path.
+  3. Preserves arbitrary numbered alternatives and source provenance.
+  4. Creates collision-safe generated names for nested subbanks.
+  5. Installs silence/onset repairs or Japanese contribution plans without
+     changing source samples.
+  6. Maps OTO overlap/fixed-region landmarks into coherent diphone center cuts
+     without normalizing source recordings. The normal GUI/WSL renderer later
+     mixes outgoing and incoming source-frame trajectories over an editable
+     millisecond interval; direct Festival and Legacy joins retain stock
+     UniSyn behavior.
+  7. Runs one shared source-speaker F0 analysis for every language: valid
+     recursive FREQ0003 frames, deterministic source-WAV estimation, then a
+     documented fallback. It stores median, p10/p90, voiced count, relative
+     files, method, and diagnostics before creating versioned pitchmarks.
+  8. Writes the UniSyn EST index and portable runtime JSON metadata, including
+     join-level settings, per-phone references, and before/after diagnostics.
+  9. Records separate source-bundle and voice-configuration identities; the
+     pitch analysis belongs to the shared source bundle.
+ 10. Generates one language entry point and one alias namespace.
+ 11. Generates SIOD-portable, relocatable Festival Scheme without unsupported
+     let* or numeric =.
+ 12. Optionally performs a fresh nonempty Festival WAV smoke render; Japanese
+     uses its canonical phone, duration, F0, and unit-override plan.
+
+Source pitch and color labels are preserved as provenance. The stable builder
+requires one selected subbank/color and the stable GUI does not dynamically
+route them. Experimental code must opt in explicitly; normal use builds each
+pitch or color as a separate generated voice configuration.
+
+
+7. PHONE TIMING AND PAUSES
+==========================
+
+The initial render obtains phone boundaries from the synthesis engine. The GUI
+stores each phone as a Segment with start and end time.
+
+Dragging a boundary or editing the Timing parameter changes duration factors.
+The immediate waveform edit is an audition preview. Re-render Phonemes sends
+the edited durations back through the selected engine for the best result.
+
+A single selected phone region is cosmetic selection, not a rule limiting
+which boundary may move. Consonant and vowel boundaries can both be adjusted.
+Pause-only selections are editable as well.
+
+Phrase pauses are deliberately divided so a long rhetorical gap does not force
+the final consonant to absorb an unsuitable long transition:
+
+  - internal phrase boundaries use four pauses: an outgoing guard and
+    outgoing half-gap, then an incoming half-gap and incoming guard;
+  - the first pair belongs to the preceding phrase and the second pair belongs
+    to the following phrase, so phrase playback never borrows an onset-bearing
+    pause from its neighbor;
+  - utterance-edge pauses are split into independently editable pairs;
+  - Fault Mode can collapse pause runs to the old single-pause behavior.
+
+Options > Phrase pauses exposes only semantic totals: minor, major, and
+sentence milliseconds. The values are bounded to 0-2000 ms, saved in both
+config.json and version-4 project settings, and apply to all Festival text
+frontends. Existing rendered text is marked for Re-render. Re-render retimes
+only internal pause runs and preserves every spoken phone and its index.
+
+The duration plan is kept separate from the source recording slices. Re-render
+constructs a Festival Segments utterance with explicit durations rather than
+stretching one final WAV as an undifferentiated whole.
+
+Canonical special-phone timing is also separate from source-phone identity.
+Generated UTAU voices keep `V-cl-C` visible and editable while selecting
+`V-C-C`: the `cl` interval uses a bounded consonant hold and the following
+`C-V` remains the sole release. Text and manually entered Phonemes use the same
+resolver in every language. OTO aliases named `cl` do not change this contract.
+A creator may expose a genuine authored `/cl/` simultaneously under a distinct
+canonical token, for example `cl_literal=cl`; the structural `cl` remains
+available.
+
+Japanese uses a mora-first timing model. It predicts one mora duration, then
+allocates that time among the onset and vowel. Ordinary CV, vowel-only,
+palatalized, geminate `cl`, moraic `N`, long-vowel, devoiced-vowel, and
+phrase-final morae have distinct rules. Speed scales these durations separately
+from F0. Runtime OTO slice geometry supplies source-safe estimates where it is
+available; OTO landmarks remain alignment data rather than target durations.
+Plan schema 2 records predicted mora duration, every phone allocation, source
+reference, safe minimum/maximum, requested stretch, final duration, and whether
+phrase-final lengthening applied. Generate > Render details displays those rows.
+
+For unusually long vowel or sonorant stretches, the GUI can use an unnumbered
+X-X sustain recording when the generated bank supplies one. The fault called
+"Long stretches, no sustain samples" disables that aid for comparison.
+
+
+8. RECORDING-TAKE SELECTION
+===========================
+
+Generated banks retain every numbered OTO alternative in
+dic/unit_alternatives.json. Each row records the real ordered oto.ini context,
+source WAV, alias, OTO line, slice, subbank, and related metadata. WAV filenames
+are displayed as source identifiers but are not trusted as phonetic evidence.
+
+For every adjacent phone pair, automatic selection examines the phone before
+and after the diphone. Exact context matches score highest. Compatible broad
+classes (vowel, stop, fricative, affricate, nasal, liquid, glide, silence, and
+voicing where relevant) provide weaker evidence across languages.
+
+Ordinary numbered takes are compared with the explicit base take's real score.
+This is important for cases such as:
+
+  target:  ah > t-eh > s
+  base:     z > t-eh > r
+  take1:   eh > t-eh > l
+
+Here take1 is preferable because the target and recording both have a vowel
+before t, whereas base places t after a consonant. The far context still counts,
+but a fixed zero-score floor no longer hides this relative improvement.
+
+There is a narrow phrase-edge guard: a take cannot win solely because its pau
+side matches when its spoken-side context is unrelated. This preserves the
+safe behavior for cases such as a mismatched ih-ng recording ending in pau.
+
+Additional rules:
+
+  - English L is treated as light before a vowel or /j/ and dark before a
+    consonant or pause, even when both map to the same OTO phone name.
+  - Diphones ending in voiced sibilants prefer verified vowel, sonorant, or
+    voiced-continuant following contexts over stop/affricate contexts that may
+    contain recorded devoicing.
+  - Manual per-occurrence choices always override automatic selection.
+  - Manual choices are remapped by unchanged diphone identity after phone edits
+    so an old numeric index is not silently applied to a different transition.
+
+Before Generate and Re-render, the GUI refreshes only the selected voice's
+fingerprint. An unchanged voice stays hot. A changed local metadata file,
+explicit Reload/scan/re-registration, or the cache menu invalidates the
+affected data. In-flight Festival loads publish only when their fingerprint
+and invalidation generation still match, so a rebuilt bank cannot apply an old
+takeN meaning to a newly generated unit name.
+
+The Recordings view shows the selected unit. Right-click inspection explains
+the automatic reason and score and identifies the exact source OTO material.
+For Japanese, its selected-mora command lists every incoming/outgoing source
+role, alias, WAV, source interval, target edge, and visible fallback.
+
+
+9. PITCH, PROSODY, AND PSOLA
+============================
+
+Festival's first render supplies a generated F0 contour. The GUI stores that
+contour separately as ground truth so editing can remain reversible.
+
+There are two aligned pitch-editing modes:
+
+Continuous Pitch curve:
+  The generated F0 remains visible underneath. The user edits control points in
+  time and frequency. The range is bounded, and vertical zoom changes the view
+  rather than multiplying pitch without control.
+  Visible phone-center controls are a sparse editing surface, not a replacement
+  F0 relation. Re-render preserves every dense generated target and overlays
+  only the local log-frequency deviation between neighboring edited controls.
+  For an unedited render, the baseline is the exact Festival Target relation
+  returned by the explicit waveform-producing pass. A stale pre-recenter
+  text-pass contour is never allowed to seed the first edit in a current
+  render. An edit to one point therefore does not rebase untouched sentence
+  pitch. Projects whose cached audio predates this correction should be
+  generated once to refresh their stored baseline metadata.
+  A compact + / vertical scrollbar / - navigator beside the plot controls
+  vertical pitch zoom and center. It never changes waveform time zoom.
+
+Intonation blocks:
+  Sentence/phrase blocks represent punctuation behavior such as question,
+  exclamation, statement, comma, and colon. They overlay phrase-edge behavior
+  on the generated contour instead of discarding all lexical prosody. Japanese
+  `。`, `？`, `！`, `、`, and full-width comma/colon/semicolon normalize to the
+  same controls. A fresh Japanese render starts in this block layer.
+
+Pitch accent:
+  The default structural provider uses the canonical Open JTalk or fallback
+  phrase/accent analysis. Its speaker-relative semitone contour combines
+  breath-group reset, phrase-initial shape, lexical nucleus fall, bounded
+  downstep, sentence declination, and phrase-final lowering inside the shared
+  FRQ-derived speaker range. It never inserts an interrogative-rise target.
+  Optional Open-JTalk-label reanalysis and external
+  HTS-JSON phone/duration/F0 trajectories may replace that generated baseline;
+  neither requests or substitutes an Open JTalk waveform. Manual nucleus,
+  accent-phrase split/merge, unaccented state, and per-mora cent edits overlay
+  the baseline. Question behavior is edited only in Intonation blocks.
+  Single-clicking a mora only selects it; double-clicking places its nucleus.
+  Dragging the existing triangle moves it after the normal drag threshold.
+  Right-click marks the accent phrase unaccented.
+  Manual unit choices and the existing continuous Pitch curve remain final.
+  Re-rendering a pitch-accent edit does not silently replace pitch points.
+  The F0 order is speaker analysis, structural Japanese baseline, Japanese
+  accent edits, per-mora offsets, general Intonation blocks, continuous Pitch
+  points, then bounded 50-500 Hz safety clamping.
+
+  Provider durations apply to a fresh Generate. Re-render preserves user-edited
+  phone boundaries, while still applying the selected provider's F0 baseline.
+
+Pitch edits are not implemented as a simple post-render pitch shift. Re-render
+passes the target contour back to Festival/UniSyn. UniSyn TD-PSOLA regenerates
+the waveform around the requested F0 while retaining the selected units and
+explicit phone durations.
+
+For a generated voice without a manual --f0 override, the initial Pitch value
+is the selected OTO scope's measured speaker median. No automatic +3.5-semitone
+headroom is added. Lem V4Bi 3_E3 therefore builds and opens at about 164.81 Hz,
+not 202 Hz. Old speaker_median_plus_headroom manifests are read through their
+stored speaker median; explicit builder overrides remain explicit.
+
+When durations change, generated and manually edited F0 targets are remapped
+from the old phone timeline to the new one by their proportional position
+inside each phone. This keeps a painted curve attached to a stretched phone
+instead of resampling it at stale absolute times. Phrase boundaries are
+anchored to prevent the second phrase after a pause from losing its contour.
+Structural edits use persistent segment IDs rather than total-utterance
+scaling: deleting one phone drops only that phone's targets, while every
+surviving phone retains its own relative log-F0 deviation. Timing refreshes
+carry that deviation once instead of feeding a previously materialized
+absolute override back through the editor. Pause interiors are rebuilt from a
+canonical neighboring-pitch interpolation, so stale pause controls cannot
+accumulate into a jagged line over repeated edits. Re-render passes this
+already aligned baseline to Festival without normalizing its register a second
+time. The project stores the Pitch and Fall values used by the last successful
+render; a deliberate Pitch-control change can therefore recenter once, while
+ordinary phone, timing, and curve edits remain register-stable. Fall provides
+declination when that path is active. Controls are hidden or disabled when
+they genuinely cannot affect the selected synthesis path.
+
+Source pitchmarks are generated by one language-independent path. Per-recording
+UTAU FRQ is authoritative; missing FRQ uses WORLD Harvest by default or DIO by
+explicit builder choice, with StoneMask refinement. The exact analyzed contour
+is stored beside each generated PM as `pm/<unit>.f0.json`. Recordings > View
+PSOLA source pitchmarks displays that voiced contour separately from the filled
+epoch rate PSOLA uses across unvoiced regions. This diagnostic reads generated
+voice files only and never reads or writes the original UTAU bank.
+
+Generate > Inspect joins and UniSyn windows... starts from a separate
+rendered-output diagnostic. Festival synthesis retains TargetCoef epochs and
+the project-local native renderer reports exact handoffs from UniSyn's
+monotonic source/target map; the pure-Python path retains its exact crossfade
+interval. Old projects fall back to an explicitly estimated phone centre.
+Each handoff keeps separate level, exact sample and derivative, F0, phase,
+period-shape, spectral-value, spectral-slope, and local MAD-novelty
+measurements. A 0.5/1/2/3 ms scan separately detects brief, locally novel
+full-spectrum impulses; sustained frication is not enough by itself. Stop and
+affricate labels annotate a burst as potentially expected but never hide its
+raw score. Unvoiced joins do not receive invented pitch or phase zeros.
+
+The inspector defaults to rendered phone order, with Worst first available as
+an explicit diagnostic ordering. Opening it from a Recordings block selects
+the join rendered inside that phone. The Selected Join tab plots the local
+waveform, first difference, unaligned/normalised/aligned periods, RMS, F0, and
+spectral trajectories. Static spectrogram exports add issue triangles,
+handoff spans, a rendered-phone strip, a complete phoneme-sequence footer, and
+stop/closure tinting. Recordings > Export Broadband Impulse Join Audit writes
+these images below diagnostic_images/broadband_impulse_join_audit. JSON export
+and repair suggestions are read-only.
+
+For the next Festival/WSL render, the inspector exposes both the stock
+sentence-wide source-window settings and a millisecond crossover. The default
+crossover is 40 ms; per-occurrence left/right overrides are bounded to 100 ms
+and then limited by the renderer's phone/context cap. Voiced endpoints snap
+inward to existing target pitchmarks, so the rendered period count varies with
+F0 while elapsed time remains authoritative.
+
+The GUI annotates each Segment with a canonical join class before unit lookup.
+This takes precedence over stale generated phonesets and falls back to Festival
+features for unknown third-party phones. Vowels use an 80 ms/60% cap; nasals,
+liquids, and glides use 60 ms/70%; voiced fricatives use 50 ms/65%. New
+English/Asaxi and Japanese generated phonesets also preserve their real
+articulatory classes instead of declaring every consonant a stop.
+
+View > Rendered joins in waveform shows every handoff and rendered crossover
+in the main Speech timeline. Clicking a marker exposes directly draggable
+green handles and a requested/rendered/cap readout. Dragging stores only that
+occurrence, marks the waveform for Re-render, and participates in Undo/Redo.
+If a phone is stretched, its overlay moves by the join's relative position in
+that phone. Applying either editor preserves phone timing, F0, contextual
+choices, and manual overrides. Legacy joins disables these controls and uses
+the exact stock Festival path. No post-render repair or selector override is
+applied. Clicking the selected marker again, selecting the waveform, hiding the
+overlay, replacing synthesis, or pressing Escape dismisses the handles without
+changing the requested crossover.
+
+Re-render restores the exact visible waveform range and playhead after the new
+audio arrives. Generate continues to frame a newly generated result normally.
+
+Normal WSL rendering keeps the native Festival helper warm and serializes jobs
+through it. The worker is recycled after 32 renders, and a native-binary or
+voice-metadata change restarts it. Legacy joins remains a stock one-shot
+Festival invocation.
+See JOIN_DISCONTINUITY_DIAGNOSTICS.md.
+
+
+10. WAVEFORM EDITOR AND LONG-UTTERANCE PERFORMANCE
+==================================================
+
+The waveform, ruler, phoneme regions, timing view, pitch view, intonation view,
+recording view, selection, and playhead share one time coordinate system.
+
+The ruler is the playhead control. Horizontal scrolling may include a small
+pre-zero margin without shifting the playhead mapping. During playback, Follow
+playhead jumps by a page when the marker leaves the visible area; it can be
+disabled.
+
+Long audio is not drawn sample by sample at every zoom. The waveform renderer
+uses Audacity-inspired level-of-detail summaries:
+
+  - raw samples through two samples per pixel;
+  - connected chronological extrema through sixteen samples per pixel;
+  - continuous lower/upper envelopes beyond that point;
+  - a lazy 16, 32, 64, 128... min/max pyramid selected independently for
+    each viewport, avoiding the former slow and visually broken middle tier;
+  - visible-range-only drawing;
+  - per-pixel reduction rather than creating one graphics item per sample.
+
+Phone boundaries, labels, timing bars, pitch points, and grid details are also
+simplified when zoomed far out. This prevents extremely long strings and many
+pause regions from creating thousands of expensive visible objects. Draggable
+phone boundaries require 18 px spacing and editable phone fields require 24 px;
+closer zoom restores them automatically.
+
+The waveform editor now virtualizes the editing objects themselves, not merely
+their visibility. Only viewport-readable QLineEdit phone fields and draggable
+InfiniteLine boundaries remain alive; stable list slots preserve segment-index
+semantics. Rendered joins use exact markers above 10 px per join and at most one
+representative per 8 px bucket below that threshold. Syllable/mora guide bands
+use equivalent viewport-bounded geometry.
+
+Japanese and Asaxi mora grids cache their linguistic group geometry and paint
+only cells intersecting the QScrollArea's exposed rectangle. The Japanese grid
+stores synchronized playback time but does not repaint at the 30 ms playback
+timer rate because no playhead glyph is drawn in that strip. The waveform is
+the visible and authoritative playhead. Hidden X-linked parameter pages keep
+their time range but defer LOD reconstruction until the user selects them, so
+one zoom gesture does not redraw every parameter mode. These changes alter
+display work only; phone timing, pitch, unit selection, project data, and
+synthesis are unchanged.
+
+Pending visual states distinguish edits that require Generate from edits that
+require Re-render. Timing edits keep red boundaries and show a lighter blue
+waveform (#4a68d8) rather than turning the entire editor into an ambiguous grey
+state. A Generate-required Sentences row uses a slightly desaturated neutral
+background and no Generate-pending badge; its Generate button remains yellow.
+Each sentence stores the last rendered text as a baseline. Returning edited
+text to that baseline before Generate clears the text-caused pending state,
+restores phrase routing, playback availability, and the normal row color.
+
+
+11. SENTENCES, PROJECTS, AND CACHES
+===================================
+
+A version-4 project is a dedicated directory:
+
+  Project Name/
+    project.json
+    cache/
+    exports/
+
+The manifest stores sentence and phrase state plus stable IDs for every editor
+segment. Rendered sentence audio is stored in cache/ without embedding large
+sample arrays in JSON. Open Project JSON selects this manifest directly, and
+export dialogs default to exports/. Missing cached audio
+is reported as needing rendering; opening a project never silently runs a fresh
+Generate that could discard manual structure.
+
+Japanese sentence rows additionally store a provisional canonical utterance,
+accent overrides, accent-phrase boundary starts, mora pitch offsets, stable manual candidate IDs, bank
+analysis summary, selected baseline provider, optional trajectory path,
+legacy experimental routing metadata, and the last explicit plan. Project
+settings also store semantic minor/major/sentence pause totals. Version-4
+projects created before Phase 4 load with an empty Japanese overlay. Earlier
+experimental accent and mora-offset field names migrate when encountered.
+
+Duplicate and Paste create fresh segment IDs. Move, Undo, Redo, save/load, and
+Re-render preserve the identity of each occurrence, including adjacent regions
+with the same phone label. Re-render aligns the returned occurrence sequence
+and transfers IDs; editor identity is not inferred only from list position or
+phone label.
+
+During Sentences playback, Follow spoken sentence scrolls only when playback
+enters a different sentence; the checkbox persists in GUI configuration. An
+initial Generate All commits each sentence waveform as soon as it succeeds.
+Identical repeated batch failures are aggregated into one summary dialog after
+the batch rather than one modal dialog per sentence.
+
+Sentence-level Play All always concatenates each sentence's complete canonical
+waveform; phrase-preview metadata cannot truncate it. Phrase previews form a
+contiguous partition of that waveform. The initial pause belongs to the first
+phrase. At a canonical four-pause internal boundary, pauses one and two belong
+to the preceding phrase while pauses three and four belong to the following
+phrase. A legacy three-pause edit is migrated by preserving its outer guards
+and splitting only its middle gap, with no change to total duration. If
+Festival inserts more acoustic pause-separated spans than the text has
+punctuation phrases, the extra spans are grouped into the nearest logical
+phrase instead of being discarded by a shortest-list pairing. Thus playing all
+phrase previews covers every rendered sample exactly once, including internal
+pauses and the final spoken tail. Replacing or clearing sentence-row selection
+also clears stale phrase selection, so a button labeled Play all can never
+silently enter the Play selected phrases branch.
+
+Pre-version-4 project JSON is intentionally unsupported in the current GUI.
+There is no separate legacy-project command while this remains a single-user
+workflow.
+
+Other storage used by the application:
+
+  config.json
+    Persistent user settings and registered-voice paths.
+
+  In-memory waveform LOD caches
+    Min/max summaries for the currently loaded waveform.
+
+  In-memory generated-voice metadata
+    Recursively read-only alternatives and compatibility indexes with exact
+    byte-bounded LRU ownership. Local metadata is fingerprinted; WSL metadata
+    invalidates on explicit Reload/scan/re-registration.
+
+  In-memory decoded and pre-sliced audio
+    Each resident pure-Python voice owns bounded decoded-WAV and diphone-slice
+    LRUs. Referenced generated-WAV identities invalidate stale entries without
+    flushing an unchanged voice. Public sample APIs return defensive copies.
+
+  In-memory model and frontend data
+    CMU/kana pronunciation data, canonical Japanese frontend snapshots, and
+    duration/pitch/vocal-tract profiles are bounded. Small file-backed models
+    use content-aware identity so same-size restored-timestamp replacements do
+    not remain stale.
+
+  Phase 5 generated-voice quality cache
+    Optional timestamp-free, content-addressed JSON in a caller-selected ignored
+    output/cache directory. Keys include generated-copy WAV content and join
+    geometry. Source UTAU paths are rejected as cache roots.
+
+  Windows temporary exchange files
+    Scheme jobs, Festival WAV/segment outputs, and temporary sustain copies.
+    These are runtime exchange data, not source voicebanks.
+
+  Project cache/ WAV files
+    Persistent only inside a saved version-4 project folder.
+
+The software does not intentionally write synthesis cache data into the UTAU
+source bank.
+
+Options > Application caches reports current approximate memory and can clear
+Audio, Voice, Model, or All. These actions remove only reproducible in-memory
+values. They do not delete or replace current synthesis, sentence previews,
+Undo/Redo state, source UTAU banks, generated voices, projects, project cache
+WAVs, exports, dictionaries, configuration, or application files.
+
+
+12. VOICEBANK AND SOURCE SAFETY
+===============================
+
+The ground-truth UTAU bank is source material and must remain read-only.
+Current generated Festival voices live beneath one configured Windows output
+root. The GUI derives their WSL runtime paths. Existing /home/... registrations
+remain visible as legacy WSL-only entries and are never moved automatically.
+
+Voicebank removal is restricted to registered generated/installed voice paths.
+An existing folder must pass generated-voice validation. Deletion requires the
+user to type a specific confirmation and accept a second permanent-deletion
+warning. If a registered folder is already missing, the GUI can remove only the
+saved list entry without trying to validate or delete nonexistent files.
+
+The application must never point its uninstall action at the ground-truth UTAU
+bank. Testing removal should use disposable generated fixtures, not real banks.
+
+
+13. FAULT MODE
+==============
+
+Fault Mode contains independent diagnostic degradations. They are for hearing
+and comparing failure modes, not normal quality settings:
+
+  No phone timing rules
+    Uses equal phone durations instead of normal class/voice timing.
+
+  No learned prosody
+    Removes active learned English prosody and uses equal phones plus Fall.
+
+  Raw F0 joins
+    Disables F0 boundary discontinuity correction.
+
+  Single phrase pause
+    Collapses protected multi-part pause runs.
+
+  Broken pitch estimate
+    Injects bounded, visible F0-estimation faults.
+
+  Long stretches, no sustain samples
+    Prevents X-X sustain assistance during long stretches.
+
+  Monotone
+    Forces a flat contour at the Pitch value.
+
+  Bit depth
+    Quantizes output to selected diagnostic bit depths.
+
+Fault controls are shown or enabled only where the selected mode can use them.
+
+
+14. OUTPUT, PLAYBACK, AND GAIN
+==============================
+
+Playback uses sounddevice when available and falls back to Windows playback.
+The playhead follows real elapsed audio time. Pressing Space during playback
+stops at the current position; pressing Space again resumes from there. Natural
+completion returns to the start for a fresh replay.
+
+Output gain is applied consistently to preview, project cache, playback, and
+export. By default the maximum allowed gain is limited by measured waveform
+headroom. The user may explicitly allow clipping.
+
+Generated Festival voices also use one shared automatic output-calibration
+policy for every supported language. After the language-specific linguistic
+plan has been rendered, all languages pass through the same ordered acoustic
+stages: continuous voicing realization, vocal-tract transformation, completed-
+phrase active-speech calibration, diagnostic bit depth, then the user's Output
+gain. The active-speech measurement excludes `pau` segments and applies one
+scalar to the completed phrase; it never normalizes individual phones or units,
+so the voice's intended internal level differences remain intact.
+
+The current generated-voice default targets -20 dBFS active RMS, permits
+-6..+12 dB automatic gain, and limits the result to a 0.98 sample peak. Explicit
+voice metadata is authoritative, including an explicit empty policy. Older
+locally generated voices are recognized by their stable manifest/builder
+identity and use the current default without requiring a rebuild. Built-in Kal
+and unknown external Festival voices are not automatically calibrated.
+
+This common acoustic pipeline does not replace linguistic behavior. English,
+Asaxi, and Japanese retain their own phones, timing, phrasing, and generated F0
+plans. Japanese accent, mora timing, mora pitch, and mora voicing state remains
+stored in the sentence/project when its Japanese-only Parameter Editor pages
+are hidden for another language. Asaxi mora H/L, pitch, and voicing state
+follows the same persistence rule while remaining a distinct linguistic model
+behind the shared Pitch accent and Mora voicing parameter types.
+
+Each sentence's preview audio is canonical. Generate and Re-render immediately
+replace it with their returned waveform. Local timing edits immediately update
+it as an audition preview. Speech playback, Sentences playback, the visible
+waveform, project caching, and WAV export all read that same state, so an older
+synthesis object cannot leak into one tab or an export.
+
+When existing audio would be replaced by a fresh phone plan, both Speech and
+Sentences ask: "Generate may reset manual timing, pitch, segment, or recording
+edits. Continue?" Cancelling does not alter the current audio or segment plan.
+
+WAV output can be exported for the active sentence, selected sentence items,
+the project as separate numbered files, or a merged sequence.
+
+
+15. KNOWN LIMITATIONS AND DEFERRED WORK
+=======================================
+
+  - Song mode and MIDI import are deferred and absent from the current GUI.
+  - Dynamic multipitch and voice-color routing require declared generated-voice
+    subbank metadata and are opt-in. Exact color routing is sentence-level;
+    manual per-occurrence recording choices remain the finer final control.
+  - Japanese kanji and lexical accent use optional, locally installed
+    pyopenjtalk. The dependency-free fallback intentionally supports only kana
+    and documented romaji and reports unsupported kanji.
+  - Japanese acoustic naturalness remains unverified by a human listener.
+    Phase 5 join metrics can diagnose structure but cannot replace listening.
+  - Phase 5 acoustic scores are deterministic triage signals, not perceptual or
+    naturalness scores. Human listening remains required.
+  - Redistribution is not approved: the repository has no project-wide license,
+    source-bank terms must be checked per voice, and the PyQt distribution model
+    needs an explicit GPL/commercial decision.
+  - Festival synthesis is serialized on a background worker while the Qt event
+    loop remains responsive. Normal native renders reuse one Festival process,
+    recycled after 32 jobs by default; Legacy joins intentionally uses a fresh
+    stock-Festival process for each render.
+  - A generated voice built with old Scheme must be rebuilt to receive new
+    embedded standalone-Festival selector logic. The GUI runtime can apply its
+    current selection rules to older generated metadata through explicit unit
+    overrides.
+  - Pure diphone synthesis cannot equal a well-recorded, well-labeled Multisyn
+    corpus for naturalness. Both remain supported for different purposes.
+  - Automatic recording choice is evidence-based, not omniscient. The manual
+    per-occurrence selector and source inspector remain necessary listening
+    tools.
+
+
+16. NORMAL END-TO-END FESTIVAL FLOW
+===================================
+
+The ordinary high-quality workflow is:
+
+  1. Select Festival via WSL, language, and generated voice.
+  2. Enter text or explicit phones.
+  3. Generate Audio.
+  4. The language front end creates phones, durations, phrasing, and F0.
+  5. Runtime context rules select each outgoing recorded unit.
+  6. Festival/UniSyn renders the first waveform through TD-PSOLA.
+  7. The shared final-render pipeline applies voicing, vocal-tract processing,
+     one generated-voice phrase calibration, diagnostic bit depth, and user
+     gain in that order.
+  8. The GUI loads samples, segment boundaries, F0, and selected units.
+  9. The user edits timing, phones, pitch, intonation, or recording choices.
+ 10. The GUI marks the sentence as requiring Generate or Re-render.
+ 11. Re-render remaps timing/F0 and sends explicit Segments, targets, and unit
+     choices through Festival/UniSyn again.
+ 12. The returned waveform immediately replaces the sentence's canonical
+     preview and becomes the source for both tabs, playback, project caching,
+     and WAV export.
+
+This separation is central to the design: the editor may preview local timing
+changes immediately, but final pitch and timing work is regenerated through the
+synthesis engine rather than treated as an arbitrary effect on finished audio.
+
+
+17. RUNNING THE GUI
+===================
+
+From the festvox_gui directory on Windows:
+
+  python festvox_gui.py
+
+Python requirements are listed in requirements.txt. Festival operation also
+requires WSL, Festival, and the relevant Festival packages/voices inside the
+selected Ubuntu distribution. Use Options > WSL / Festival settings > Test
+connection to verify that path before diagnosing a voice.
+
+Qt high-DPI scaling and high-DPI pixmaps are enabled before QApplication is
+constructed. UI text uses point sizes. At startup the font helper prefers Yu
+Gothic UI, Meiryo UI, Meiryo, or Noto Sans CJK JP and verifies the Japanese
+glyphs through QFontMetrics; it then scans installed system families before
+falling back to the system UI font. No font file is bundled. The offscreen test
+plugin may expose only Helvetica, so glyph coverage is conditional there; the
+normal Windows font database is the authoritative runtime check.
+
+After changing Python source, restart the GUI. After changing builder-generated
+Scheme for standalone Festival use, rebuild the generated voice. Rebuilding a
+generated voice must never modify the source UTAU bank.
+
+
+18. PROMPT 19 CONTEXTUAL TIMING AND VOICING
+===========================================
+
+Japanese Generate now defaults to the versioned, source-relative contextual
+duration model. The selected source geometry supplies absolute speaker timing;
+typed phone/mora/Open JTalk context supplies bounded residuals. Options >
+Japanese duration model switches between Contextual (source-based) and Legacy
+mora timing. The legacy path remains available and isolated from the new
+predictor.
+
+Japanese moraic N is carried to the rendered Segment as timing_role
+"moraic_nasal". Bank aliases such as nn, nng, mm, and xn retain that semantic
+role in integrated voices. They use bounded Japanese-N durations and respond
+to vowel/rhyme timing filters, not consonant-only filters. Plain non-Japanese
+nn remains a consonant.
+
+Options > Japanese vowel devoicing controls the linguistic decision, while its
+Renderer submenu selects automatic natural/source-filter handling, explicit
+source-filter residual handling, or a shortened-voiced fallback. Direct
+waveform Festival TD-PSOLA continues to apply explicit duration and F0. It does
+not create aperiodicity from a periodic vowel; the source/filter realization
+stage runs only after UniSyn returns exact rendered segment boundaries.
+
+The Voicing parameter is language-independent. A stable dashed curve shows
+the automatic source analysis. The editable curve is final and uses bounded
+short-time points rather than one point per phone. The renderer separates a
+pitch-scaled harmonic residual from continuous stochastic excitation, passes
+both through the same tract envelope, and overlap-adds complementary windows.
+Zero voicing follows the measured natural-devoicing level reference instead of
+normalising noise back to voiced RMS.
+
+English renders additionally carry versioned, dependency-free diagnostic
+syllabification metadata. The parser operates on the existing ARPAbet/ARPAsing
+phone stream, uses maximal onset constrained by an English onset inventory,
+preserves stress and unknown-phone diagnostics, and never changes synthesis.
+Inline multilingual phones declared as speech-bearing vowels by the integrated
+profile (`a e i o u`, `rr`, and the syllabic nasal aliases) remain syllable
+nuclei even in English mode. Other voice profiles can supply additional
+diagnostic nuclei explicitly; timing-class vowels that are not speech nuclei,
+such as `inh`, remain excluded.
+The Parameter Editor's Show syllables / morae checkbox displays a lightweight
+background overlay on Pitch curve, Voicing, and Vocal tract length, and is off
+by default. English uses those parser spans; Japanese and Asaxi adapt their
+already-aligned mora plans to the same visual surface. The preference is
+local, and the overlay never enters sentence state, curve data, or synthesis.
+Old projects recompute missing English metadata; edited phone sequences
+invalidate and recompute stale metadata. Phrase-level phone streams remain
+phrase-level unless a future frontend supplies lexical word boundaries. See
+ENGLISH_SYLLABIFICATION.md.
+
+For Asaxi, the dashed baseline incorporates the language predictor and current
+mora-block voicing edits before it is displayed. An explicit detailed Voicing
+curve remains the final authority. Aspiration/breathy lexical predictions are
+folded into automatic mora voicing, while the renderer retains the measured
+tract envelope for both harmonic and stochastic excitation. Version 1 manual
+breathiness values migrate to equivalent single-dimension voicing ceilings.
+
+Every Generate and Re-render displays an indeterminate current-sentence
+progress bar for the complete backend and signal-processing operation.
+Generate All and Re-render All display a second, determinate completed/total
+bar directly beneath it. The pair divides one fixed normal-bar height equally;
+it does not increase the status area's height. A lone current or total bar
+uses that full reserved height. Stop requests cancellation after the current
+synchronous Festival render; completed rows remain committed and the
+previously active sentence is restored. Progress widgets are cleared on
+success, failure, and cancellation.
+
+Implementation, research, benchmark numbers, commands, and known limits are in
+PROMPT19_IMPLEMENTATION.md, docs/japanese_duration_model.md, and
+PROMPT19_BENCHMARK_REPORT.md.
+
+
+END OF STATE DOCUMENT

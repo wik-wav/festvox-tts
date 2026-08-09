@@ -1,0 +1,49 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Machine-local configuration
+festvox.json
+festvox_gui/config.json
+.env
+.env.*
+
+# Generated voices, caches, diagnostics, and exports
+generated_voices/
+rendered_audio/
+diagnostic_images/
+tmp/
+cache/
+.cache/
+native_unisyn/build/
+*.log
+
+# Source recordings and rendered audio are not distributed with the code
+*.wav
+*.wave
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.aiff
+*.aif
+
+# Never vendor external/source UTAU banks
+UTAU/
+voicebanks/
+source_voicebanks/
+external_voicebanks/
+
+# Editor and OS state
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store

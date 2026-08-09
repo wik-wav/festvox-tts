@@ -1,0 +1,137 @@
+{
+  "acoustic_edge_compensation_ms": {
+    "phrase_final_vowel": 0.0,
+    "phrase_initial_vowel": 50.0
+  },
+  "class_reference_seconds": {
+    "affricate": 0.056,
+    "approximant": 0.051,
+    "fricative": 0.068,
+    "geminate_closure": 0.082,
+    "moraic_nasal": 0.086,
+    "nasal": 0.051,
+    "other": 0.05,
+    "stop": 0.035,
+    "vowel": 0.078
+  },
+  "class_target_ratio_bounds": {
+    "affricate": [0.65, 1.45],
+    "approximant": [0.65, 1.45],
+    "fricative": [0.65, 1.45],
+    "geminate_closure": [0.7, 1.35],
+    "moraic_nasal": [0.65, 1.35],
+    "nasal": [0.65, 1.45],
+    "other": [0.65, 1.45],
+    "stop": [0.65, 1.45],
+    "vowel": [0.65, 1.45]
+  },
+  "coefficients": {
+    "accent_nucleus_vowel": 0.012,
+    "accent_phrase_final_rhyme": 0.025,
+    "consecutive_devoicing_avoidance": 0.16,
+    "devoiced_high_vowel": -0.40552092,
+    "geminate_closure": -0.048756375,
+    "interrogative_final_rhyme": 0.018,
+    "long_vowel": 0.090942274,
+    "moraic_nasal": -0.006906759,
+    "moraic_nasal_before_voiceless": -0.08,
+    "negative_auxiliary": -0.075,
+    "auxiliary": -0.045,
+    "phrase_final_rhyme": 0.25,
+    "utterance_final_rhyme": -0.15
+  },
+  "cv_compensation_fraction": 0.22,
+  "fit_provenance": {
+    "absolute_scale": "project_source_speaker_engineering_anchor_with_kokoro_relative_class_ratios",
+    "alignment_corpus": "Kokoro-Speech-Dataset-v1.3-xlarge-silver",
+    "alignment_training_ids_sha256_12": "b453f6caf042",
+    "coefficient_status": "bounded_kokoro_train_fit",
+    "corpus_speaker_scale_used": false,
+    "phrase_pause_fit": {
+      "major_ms": 530.0,
+      "major_source": "geometric interpolation; no colon/semicolon examples in the fixed sample",
+      "method": "punctuation_pause_energy_v2 robust median minus protected-guard accounting",
+      "minor_count": 33,
+      "minor_observed_total_median_ms": 419.0,
+      "sentence_count": 14,
+      "sentence_observed_total_median_ms": 880.5
+    },
+    "grammar_timing_fit": {
+      "auxiliary_log_ratio": -0.045,
+      "auxiliary_training_phone_count": 125,
+      "method": "robust source/prediction log residual after iterative utterance-rate and phone-identity centering",
+      "negative_auxiliary_log_ratio": -0.075,
+      "negative_auxiliary_training_phone_count": 24,
+      "particle_status": "analyzed but rejected because absolute train and held-out timing errors worsened",
+      "particle_training_phone_count": 350,
+      "polite_categories": "preserved in morphology but not adjusted because training and held-out estimates disagree"
+    },
+    "acoustic_edge_fit": {
+      "method": "source-relative sustained-energy onset/offset on exact-phone Festival renders",
+      "phrase_final_vowel_compensation_ms": 0.0,
+      "phrase_final_vowel_training_count": 48,
+      "phrase_final_vowel_status": "rejected after rendered held-out A/B because baseline effective final-mora duration already matched source",
+      "phrase_initial_consonant_median_excess_ms": 7.921,
+      "phrase_initial_consonant_training_count": 40,
+      "phrase_initial_vowel_compensation_ms": 50.0,
+      "phrase_initial_vowel_median_excess_ms": 51.791,
+      "phrase_initial_vowel_training_count": 8
+    },
+    "notes": "Kokoro supplies relative phone-class allocation weights and bounded contextual effects. Project-speaker mora anchors remain the absolute scale. Raw OTO half-spans contribute only a narrow within-bank residual and cannot dominate Japanese timing."
+  },
+  "maximum_context_ratio": 1.35,
+  "minimum_context_ratio": 0.55,
+  "mora_allocation_seconds": {
+    "affricate": 0.055,
+    "approximant": 0.054,
+    "cv_vowel": 0.061,
+    "devoiced_high_vowel": 0.092,
+    "fricative": 0.064,
+    "geminate_closure": 0.071,
+    "long_vowel": 0.095,
+    "moraic_nasal": 0.08,
+    "nasal": 0.05,
+    "other": 0.04,
+    "stop": 0.029,
+    "vowel_only": 0.084
+  },
+  "mora_anchor_seconds": {
+    "cv": 0.118,
+    "devoiced_high_vowel": 0.092,
+    "geminate_closure": 0.082,
+    "long_vowel": 0.108,
+    "moraic_nasal": 0.088,
+    "obstruent_cv": 0.122,
+    "other": 0.095,
+    "vowel_only": 0.11
+  },
+  "model_id": "japanese_contextual_source_anchor_kokoro_b453f6caf042_v7",
+  "phrase_pauses_ms": {
+    "major": 530.0,
+    "minor": 340.0,
+    "sentence": 800.0
+  },
+  "schema_version": 1,
+  "source_geometry_ratio_bounds": {
+    "affricate": [0.9, 1.1],
+    "approximant": [0.9, 1.1],
+    "fricative": [0.9, 1.1],
+    "geminate_closure": [0.92, 1.08],
+    "moraic_nasal": [0.92, 1.08],
+    "nasal": [0.9, 1.1],
+    "other": [0.9, 1.1],
+    "stop": [0.88, 1.12],
+    "vowel": [0.94, 1.06]
+  },
+  "speed_elasticity": {
+    "affricate": 0.65,
+    "approximant": 0.82,
+    "fricative": 0.78,
+    "geminate_closure": 0.72,
+    "moraic_nasal": 0.88,
+    "nasal": 0.86,
+    "other": 0.75,
+    "stop": 0.48,
+    "vowel": 0.96
+  }
+}

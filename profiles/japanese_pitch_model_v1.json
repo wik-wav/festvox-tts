@@ -1,0 +1,61 @@
+{
+  "analysis_evidence": {
+    "accepted_kokoro_phrase_count": 106,
+    "held_out_legacy_mae_semitones": 2.10244,
+    "held_out_model_declination_error_semitones_per_second": 0.268548,
+    "held_out_model_mae_semitones": 2.000662,
+    "held_out_model_median_contour_correlation": 0.407308,
+    "held_out_model_phrase_range_error_semitones": 2.802822,
+    "kokoro_declination_semitones_per_second_median": -2.878701,
+    "kokoro_phrase_range_p10_p90_semitones_median": 7.115628,
+    "kokoro_phrase_range_p10_p90_semitones_p10": 3.995666,
+    "source_recording_observed_register_hz": [135.0, 180.0],
+    "training_model_declination_error_semitones_per_second": 0.21519,
+    "training_model_mae_semitones": 1.840392,
+    "training_model_median_contour_correlation": 0.55378,
+    "training_model_phrase_range_error_semitones": 2.191074
+  },
+  "components_semitones": {
+    "accent_nucleus": 1.32,
+    "accent_phrase_reset": 0.28,
+    "breath_group_reset": 0.45,
+    "downstep_per_accent": -0.86,
+    "initial_accent_nucleus": 1.36,
+    "initial_low": -0.8,
+    "local_declination_total": -0.45,
+    "neutral": 0.16,
+    "neutral_initial": -0.24,
+    "phrase_declination_total": -1.46,
+    "phrase_final_base": -0.44,
+    "phrase_final_per_boundary_strength": -0.14,
+    "post_accent_drop": -0.72,
+    "pre_accent_high": 1.0,
+    "unaccented_high": 0.8,
+    "unaccented_initial_low": -0.72,
+    "utterance_declination_total": 0.0
+  },
+  "language": "ja",
+  "maximum_downstep_accents": 2,
+  "model_id": "japanese_speaker_relative_log_f0_kokoro_b453f6caf042_v5",
+  "model_version": 5,
+  "provenance": {
+    "kokoro_measurements": "Prompt 20 Stage A Kokoro-Align accepted phrase measurements",
+    "notes": "The linguistically signed lexical-accent prior is retained. A deterministic train/validation fit calibrates phrase-local trajectory and downstep. Later phrases vary through zero-mean decline, accent-contrast, and boundary-shape terms; elapsed-time and phrase-index register drift are prohibited. Kokoro speaker register is never copied; automatic F0 outliers remain reported rather than silently fitted.",
+    "research": [
+      "https://www.isca-archive.org/icslp_1992/hata92_icslp.html",
+      "https://www.isca-archive.org/speechprosody_2004/selkirk04_speechprosody.html",
+      "https://www.isca-archive.org/interspeech_2022/hwang22_interspeech.html"
+    ]
+  },
+  "psola_safe_headroom_semitones": {
+    "above_baseline": 5.0,
+    "below_baseline": 5.0
+  },
+  "temporal_model": {
+    "later_phrase_accent_contrast_scale": -0.13,
+    "later_phrase_boundary_delta_semitones": -1.25,
+    "later_phrase_declination_delta_semitones": 0.13,
+    "maximum_contextual_phrase_index": 3
+  },
+  "schema_version": 1
+}

@@ -23,7 +23,7 @@ from japanese_frontend import analyze_japanese
 import japanese_synthesis as js
 
 
-FESTVOX_DIR = Path(__file__).resolve().parent
+FESTVOX_DIR = Path(jf.__file__).resolve().parent
 GUI_DIR = FESTVOX_DIR / "festvox_gui"
 if str(GUI_DIR) not in sys.path:
     sys.path.insert(0, str(GUI_DIR))

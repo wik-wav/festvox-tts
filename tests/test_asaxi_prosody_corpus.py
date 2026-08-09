@@ -14,6 +14,11 @@ import asaxi_prosody_corpus as corpus
 class AsaxiProsodyCorpusTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
+        if not corpus.DEFAULT_VAULT_ROOT.is_dir():
+            raise unittest.SkipTest(
+                "private Asaxi source notes are not part of the public "
+                "FestVox repository"
+            )
         cls.build = corpus.build_corpus()
         cls.manifest = cls.build.manifest
         cls.prompts = cls.manifest["prompts"]

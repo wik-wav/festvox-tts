@@ -7,8 +7,11 @@ import unittest
 import japanese_release as release
 
 
-ROOT = Path(__file__).resolve().parent
-LICENSE_INVENTORY = ROOT / "JAPANESE_DEPENDENCIES_AND_LICENSES.md"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SOURCE_ROOT = Path(release.__file__).resolve().parent
+LICENSE_INVENTORY = (
+    PROJECT_ROOT / "docs" / "JAPANESE_DEPENDENCIES_AND_LICENSES.md"
+)
 
 
 def _dependencies(required_installed=True):
@@ -40,7 +43,10 @@ class JapaneseReleaseTests(unittest.TestCase):
         self.assertEqual(missing, ())
 
     def test_repository_bundles_no_dictionary_or_hts_voice(self):
-        self.assertEqual(release.scan_prohibited_bundled_assets(ROOT), ())
+        self.assertEqual(
+            release.scan_prohibited_bundled_assets(PROJECT_ROOT),
+            (),
+        )
 
     def test_asset_scanner_reports_relative_paths_only(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -86,10 +92,12 @@ class JapaneseReleaseTests(unittest.TestCase):
                       [item.code for item in report.diagnostics])
 
     def test_optional_requirement_is_pinned_and_not_in_gui_requirements(self):
-        optional = (ROOT / "requirements-japanese-optional.txt").read_text(
-            encoding="utf-8")
-        gui = (ROOT / "festvox_gui" / "requirements.txt").read_text(
-            encoding="utf-8")
+        optional = (
+            PROJECT_ROOT / "requirements-japanese-optional.txt"
+        ).read_text(encoding="utf-8")
+        gui = (
+            SOURCE_ROOT / "festvox_gui" / "requirements.txt"
+        ).read_text(encoding="utf-8")
 
         self.assertIn("pyopenjtalk==0.4.1", optional)
         self.assertNotIn("pyopenjtalk", gui)

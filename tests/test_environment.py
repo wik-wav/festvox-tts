@@ -9,7 +9,7 @@ class EnvironmentCheckTests(unittest.TestCase):
         report = env.inspect_environment(check_wsl=False)
 
         self.assertEqual(report["missing_required_files"], [])
-        self.assertTrue((env.ROOT / "synth_diphone.py").is_file())
+        self.assertTrue((env.SOURCE_ROOT / "synth_diphone.py").is_file())
         self.assertNotIn("vocab_forge", " ".join(env.REQUIRED_FILES))
 
     def test_ready_state_distinguishes_required_from_optional_modules(self):

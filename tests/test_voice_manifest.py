@@ -5,13 +5,15 @@ import tempfile
 import unittest
 
 
-FESTVOX_DIR = Path(__file__).resolve().parent
+FESTVOX_DIR = (
+    Path(__file__).resolve().parents[1] / "src" / "festvox_tts"
+)
 GUI_DIR = FESTVOX_DIR / "festvox_gui"
 for folder in (FESTVOX_DIR, GUI_DIR):
     if str(folder) not in sys.path:
         sys.path.insert(0, str(folder))
 
-from festvox_gui import festvox_core as fc
+import festvox_core as fc
 import japanese_candidates as jc
 import japanese_festival as jf
 from japanese_profiles import infer_bank_profile

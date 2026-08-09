@@ -41,6 +41,7 @@ from typing import Callable, List, Mapping, Optional
 import numpy as np
 
 FESTVOX_TOOL_DIR = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = FESTVOX_TOOL_DIR.parents[1]
 NATIVE_FESTIVAL_RUNTIME = (
     FESTVOX_TOOL_DIR / "native_unisyn" / "build" / "festvox-festival"
 )
@@ -75,7 +76,7 @@ import asaxi_prosody as asaxi_prosody_domain  # noqa: E402
 import english_syllables as english_syllable_domain  # noqa: E402
 GUI_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_GENERATED_VOICE_ROOT = str(
-    (Path(GUI_DIR).resolve().parent / "generated_voices").resolve()
+    (PROJECT_ROOT / "generated_voices").resolve()
 )
 VOICE_ICON_SUFFIXES = (".png", ".jpg", ".jpeg", ".bmp", ".webp")
 BUILTIN_FESTIVAL_VOICES = {

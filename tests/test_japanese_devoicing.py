@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from festvox_gui.festvox_core import Segment, Synthesis
+from festvox_core import Segment, Synthesis
 from japanese_devoicing import (
     apply_voicing_override,
     apply_vowel_realizations,

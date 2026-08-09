@@ -618,7 +618,7 @@ class IsolationAndOptionalIntegrationTests(unittest.TestCase):
         self.assertEqual(reason, "")
 
     def test_importing_frontend_does_not_import_english_pipeline(self):
-        module_dir = Path(__file__).resolve().parent
+        module_dir = Path(sys.modules["japanese_frontend"].__file__).parent
         code = (
             "import sys; "
             f"sys.path.insert(0, {str(module_dir)!r}); "

@@ -45,7 +45,7 @@ PROSODY_NOTE = (
     "61_Prosody, Stress & Intonation.md"
 )
 GRAMMAR_DIR = "01_Worldbuilding/Asaxi/Grammar_Structure"
-DICTIONARY_RELATIVE = "99_Tools/festvox/dictionaries/asaxi_lexicon.json"
+DICTIONARY_RELATIVE = "src/festvox_tts/dictionaries/asaxi_lexicon.json"
 
 _TERMINAL_RE = re.compile(r".+?(?:[.!?]+[”\"]*(?=\s|$)|$)", re.DOTALL)
 _ASCII_LETTER_RE = re.compile(r"[A-Za-z]")

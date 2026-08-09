@@ -8,7 +8,7 @@ import tempfile
 import unittest
 import wave
 
-from festvox_gui import festvox_core as fc
+import festvox_core as fc
 from voice_paths import (
     VoicePathError,
     migrate_voice_registration,

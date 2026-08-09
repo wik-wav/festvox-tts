@@ -32,6 +32,10 @@ class MainWindowSmokeTests(unittest.TestCase):
         fg.CONFIG_PATH = os.path.join(self._config_tmp.name, "config.json")
         cfg = copy.deepcopy(fc.DEFAULT_CONFIG)
         cfg["engine"] = "diphone"
+        generated_root = os.path.join(
+            self._config_tmp.name, "generated_voices")
+        os.makedirs(generated_root, exist_ok=True)
+        cfg["festival_wsl"]["generated_voice_root"] = generated_root
         self.window = fg.MainWindow(cfg)
 
     def _rendered_sentence_with_unit_choices(self, text):

@@ -5,10 +5,11 @@ import unittest
 import wave
 from pathlib import Path
 
+import arpasing_profile
 from arpasing_profile import load_arpasing_profile
 
 
-HERE = Path(__file__).resolve().parent
+HERE = Path(arpasing_profile.__file__).resolve().parent
 
 
 def load_module(name, filename):

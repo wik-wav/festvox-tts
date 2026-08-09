@@ -1,13 +1,13 @@
 # UTAU → FestVox diphone conversion + diphone synthesis
 
 For a dated, implementation-level snapshot of the Windows GUI and its complete
-text/phoneme-to-waveform path, see `GUI_STATE_AND_SYNTHESIS.txt`.
+text/phoneme-to-waveform path, see `docs/GUI_STATE_AND_SYNTHESIS.txt`.
 The maintained documentation map is [docs/README.md](docs/README.md); it
 separates current operating guides from historical phase and prompt reports.
 The dependency-free English phone syllabifier, shared opt-in syllable/mora
 continuous-curve overlay, serialization contract, and current lexical-boundary
 limitation are documented in
-[ENGLISH_SYLLABIFICATION.md](ENGLISH_SYLLABIFICATION.md).
+[ENGLISH_SYLLABIFICATION.md](docs/ENGLISH_SYLLABIFICATION.md).
 The long-session resource audit, lifecycle fixes, soak command, and paired
 tracemalloc methodology are documented in
 [docs/development/PROMPT0_LONG_TERM_PERFORMANCE.md](docs/development/PROMPT0_LONG_TERM_PERFORMANCE.md).
@@ -16,42 +16,42 @@ menu, and matched before/after benchmark are documented in
 [docs/development/PROMPT0A_SYNTHESIS_EFFICIENCY.md](docs/development/PROMPT0A_SYNTHESIS_EFFICIENCY.md).
 For the primary Windows voice-build command, configuration identity, output
 protection, and legacy-registration migration, see
-[UNIFIED_VOICE_BUILDER.md](UNIFIED_VOICE_BUILDER.md).
+[UNIFIED_VOICE_BUILDER.md](docs/UNIFIED_VOICE_BUILDER.md).
 For the native millisecond-authoritative crossover renderer, direct
 per-occurrence join editing, measured discontinuity diagnostics, and the exact
 stock-Festival **Legacy joins** fault, see
-[JOIN_SYNTHESIS.md](JOIN_SYNTHESIS.md).
+[JOIN_SYNTHESIS.md](docs/JOIN_SYNTHESIS.md).
 For dictionary-driven Asaxi G2P, lexical and multiword pitch accent, strict
 grapheme handling, Vocab Forge's reviewed Festival/WSL asset workflow, and the
 standalone `asaxi_reading_guide.py` Markdown pitch-guide generator, see
-[ASAXI_PITCH_INTEGRATION.md](ASAXI_PITCH_INTEGRATION.md).
+[ASAXI_PITCH_INTEGRATION.md](docs/ASAXI_PITCH_INTEGRATION.md).
 The versioned sentence-level log-F0 realization, boundary-state carry,
 duration-sensitive target approximation, deterministic trace, and no-drift
 constraint are documented in
-[ASAXI_PITCH_REALIZATION.md](ASAXI_PITCH_REALIZATION.md).
+[ASAXI_PITCH_REALIZATION.md](docs/ASAXI_PITCH_REALIZATION.md).
 The provisional nonuniform mora/phone timing rules, live WSL handoff,
 diagnostic metadata, evidence, tests, and recording limitations are documented
-in [ASAXI_DURATION_MODEL.md](ASAXI_DURATION_MODEL.md).
+in [ASAXI_DURATION_MODEL.md](docs/ASAXI_DURATION_MODEL.md).
 Inventory-aware Asaxi realization fallbacks for unsupported compact
 palatalized transitions are documented in
-[ASAXI_PHONE_FALLBACKS.md](ASAXI_PHONE_FALLBACKS.md).
+[ASAXI_PHONE_FALLBACKS.md](docs/ASAXI_PHONE_FALLBACKS.md).
 
 For the researched Japanese CV/VCV/CVVC architecture, compatibility boundary,
 and phased implementation plan, see
-[JAPANESE_UTAU_INTEGRATION_DESIGN.md](JAPANESE_UTAU_INTEGRATION_DESIGN.md).
+[JAPANESE_UTAU_INTEGRATION_DESIGN.md](docs/JAPANESE_UTAU_INTEGRATION_DESIGN.md).
 Phase 0 is available as the read-only `japanese_utau.py` analyzer; it reports
 strict UTF-8/CP932 decoding, malformed OTO data, and mixed alias-family evidence
 without building audio or changing the source bank.
 Phase 1 is available through the isolated `japanese_frontend.py` API, with a
 typed canonical utterance, dependency-free kana/romaji fallback, and optional
 pyopenjtalk full-context analysis. See
-[JAPANESE_PHASE1_IMPLEMENTATION.md](JAPANESE_PHASE1_IMPLEMENTATION.md). This is
+[JAPANESE_PHASE1_IMPLEMENTATION.md](docs/JAPANESE_PHASE1_IMPLEMENTATION.md). This is
 the linguistic frontend consumed by the isolated Japanese synthesis route; it
 does not alter the English frontend.
 Phase 2 adds `japanese_profiles.py` and `japanese_candidates.py`: read-only bank
 profiles, exact alias overrides, stable source candidates, mixed CV/VCV/CVVC
 coverage, and deterministic provisional metadata. See
-[JAPANESE_PHASE2_IMPLEMENTATION.md](JAPANESE_PHASE2_IMPLEMENTATION.md).
+[JAPANESE_PHASE2_IMPLEMENTATION.md](docs/JAPANESE_PHASE2_IMPLEMENTATION.md).
 Read-only inference is advisory. A generated Japanese voice requires an
 explicit CV, VCV, or CVVC configuration; its aliases, canonical phones, and
 candidate IDs are scoped to that configuration.
@@ -63,13 +63,13 @@ Phase 3 adds `japanese_festival.py`, `japanese_synthesis.py`, and
 `japanese_listening_set.py`: a separate Japanese Festival/UniSyn voice,
 explicit duration and F0 plans, stable candidate overrides, and a reproducible
 human-listening corpus. See
-[JAPANESE_PHASE3_IMPLEMENTATION.md](JAPANESE_PHASE3_IMPLEMENTATION.md).
+[JAPANESE_PHASE3_IMPLEMENTATION.md](docs/JAPANESE_PHASE3_IMPLEMENTATION.md).
 The corrective assembly layer in `japanese_assembly.py` exposes every selected
 alias and source slice, enforces one shared consonant center, and replaces a
 missing pure-CV transition with a visible bounded bridge rather than hidden
 silence. `japanese_assembly_listening.py` renders the CV/VCV/CVVC comparison
 set. See
-[JAPANESE_ASSEMBLY_REMEDIATION.md](JAPANESE_ASSEMBLY_REMEDIATION.md).
+[JAPANESE_ASSEMBLY_REMEDIATION.md](docs/JAPANESE_ASSEMBLY_REMEDIATION.md).
 Generated runtime metadata separates the immutable source recording bundle
 from the chosen voice configuration and declares its exact supported
 languages and Festival entry points. The GUI constrains language selection
@@ -77,22 +77,22 @@ from this manifest and labels older path-backed voices whose metadata should
 be rebuilt.
 Phase 4 adds `japanese_editing.py` and the Speech-tab mora/accent workflow,
 project persistence, undo/redo, and read-only bank coverage/alias resolution.
-See [JAPANESE_PHASE4_IMPLEMENTATION.md](JAPANESE_PHASE4_IMPLEMENTATION.md).
+See [JAPANESE_PHASE4_IMPLEMENTATION.md](docs/JAPANESE_PHASE4_IMPLEMENTATION.md).
 Phase 5 adds `japanese_quality.py`, `japanese_refinements.py`, and
 `japanese_release.py`: generated-unit join diagnostics, optional label/HTS-JSON
 baselines, deterministic multipitch and voice-color routing, cache/release
 checks, and a 16-example listening corpus. See
-[JAPANESE_PHASE5_IMPLEMENTATION.md](JAPANESE_PHASE5_IMPLEMENTATION.md) and the
-[dependency/license inventory](JAPANESE_DEPENDENCIES_AND_LICENSES.md).
+[JAPANESE_PHASE5_IMPLEMENTATION.md](docs/JAPANESE_PHASE5_IMPLEMENTATION.md) and the
+[dependency/license inventory](docs/JAPANESE_DEPENDENCIES_AND_LICENSES.md).
 Prompt 19 adds the production contextual duration model, continuous
 source-filter voicing control, fixed A/B evaluation matrix, and extended join
-analysis. See [PROMPT19_IMPLEMENTATION.md](PROMPT19_IMPLEMENTATION.md), the
+analysis. See [PROMPT19_IMPLEMENTATION.md](docs/PROMPT19_IMPLEMENTATION.md), the
 [duration-model note](docs/japanese_duration_model.md), and the
-[measured benchmark report](PROMPT19_BENCHMARK_REPORT.md).
+[measured benchmark report](docs/PROMPT19_BENCHMARK_REPORT.md).
 
-> **Diphone build & synth:** see [GUIDE.md](GUIDE.md) for the full
+> **Diphone build & synth:** see [GUIDE.md](docs/GUIDE.md) for the full
 > record → configure → build → synthesize process.
-> **Multisyn (unit-selection) upgrade:** see [MULTISYN.md](MULTISYN.md) —
+> **Multisyn (unit-selection) upgrade:** see [MULTISYN.md](docs/MULTISYN.md) —
 > data budget, Audacity-vs-oto assessment, recording/boundary protocol, and
 > the `corpus_extract.py` (recording-script) + `labels2festvox.py` (label) tools.
 > **Languages:** default is **English**; `--lang asaxi|en|ja` per call (Japanese via `en-jap-mapping.yaml`).
@@ -101,11 +101,22 @@ Turns a UTAU voicebank into a FestVox-style diphone database and renders it
 from the bundled `synth_diphone.py`; no Vocab Forge or Festival runtime is
 required for the pure-Python engine.
 
+## Repository layout
+
+- `src/festvox_tts/` contains the synthesis, language, builder, GUI, profile,
+  corpus, and native-runtime implementation.
+- `tests/` contains the complete headless and GUI regression suites.
+- `docs/` contains operating guides, architecture notes, and historical
+  implementation reports.
+- `build_festival_voice.py` and `run_gui.py` are stable root launchers.
+- `festvox.example.json` is the portable local-configuration template.
+
 Install and verify from this directory without modifying any voicebank:
 
 ```text
 python -m pip install -r requirements.txt
 python check_environment.py
+python run_tests.py
 ```
 
 `festvox.example.json` is the tracked relative-path template. Machine-local
@@ -116,14 +127,14 @@ python check_environment.py
 Config-driven (paths live in `festvox.json`):
 
 ```
-python utau2festvox.py                     # build every voice in festvox.json
-python utau2festvox.py --voice asaxi_lem   # just one
+python src/festvox_tts/utau2festvox.py                     # build every voice in festvox.json
+python src/festvox_tts/utau2festvox.py --voice asaxi_lem   # just one
 ```
 
 One-off (no config):
 
 ```
-python utau2festvox.py --bank "C:/path/to/voice/F3" --out "./generated_voices/asaxi_lem" --name asaxi
+python src/festvox_tts/utau2festvox.py --bank "C:/path/to/voice/F3" --out "./generated_voices/asaxi_lem" --name asaxi
 ```
 
 OpenUtau and legacy multipitch banks can be given at their top-level folder.
@@ -135,9 +146,9 @@ uses `E3P` instead. The uncolored/default voice color is built unless another
 one is requested:
 
 ```
-python utau2festvox.py --bank "C:/path/to/MyBank" --voice-color Headvoice
-python utau2festvox.py --bank "C:/path/to/MyBank/P3_E3" --character-yaml "C:/path/to/MyBank/character.yaml"
-python utau2festvox.py --bank "C:/path/to/LegacyBank" --alias-suffix P
+python src/festvox_tts/utau2festvox.py --bank "C:/path/to/MyBank" --voice-color Headvoice
+python src/festvox_tts/utau2festvox.py --bank "C:/path/to/MyBank/P3_E3" --character-yaml "C:/path/to/MyBank/character.yaml"
+python src/festvox_tts/utau2festvox.py --bank "C:/path/to/LegacyBank" --alias-suffix P
 ```
 
 `--character-yaml` and `--prefix-map` override auto-discovery. Repeat
@@ -222,8 +233,8 @@ The renderer in this directory reads `festvox.json` and needs no files from
 `99_Tools/vocab_forge`. Render from `99_Tools/festvox`:
 
 ```
-python synth_diphone.py "Onă Gaksamipỏpỏ"              # standalone, Asaxi
-python synth_diphone.py "the velveteen rabbit" --lang en --outdir clips
+python src/festvox_tts/synth_diphone.py "Onă Gaksamipỏpỏ"              # standalone, Asaxi
+python src/festvox_tts/synth_diphone.py "the velveteen rabbit" --lang en --outdir clips
 ```
 
 Vocab Forge may separately consume the same generated DB through its own
@@ -252,12 +263,13 @@ type, OTO scope, source recording root, output folder, and generated name.
 English and Asaxi use the existing ARPAsing conversion path; Japanese-only
 banks use the isolated CV/VCV/CVVC candidate and assembly path. An ARPAsing
 configuration may explicitly enable English, Asaxi, and Japanese over one unit
-database with distinct entry points and the bundled `profiles/en-jap-mapping.yaml`.
+database with distinct entry points and the bundled
+`src/festvox_tts/profiles/en-jap-mapping.yaml`.
 Each output declares its exact supported languages, alias namespace,
 configuration identity, and Festival entry points.
 Festival and EST run locally when available or through WSL using paths derived
 at the tool boundary. Generated Scheme is relocatable and does not bake in its
-build destination. See `UNIFIED_VOICE_BUILDER.md` for commands.
+build destination. See `docs/UNIFIED_VOICE_BUILDER.md` for commands.
 The standard `kal_diphone` English voice is always registered from Festival's
 authoritative WSL installation at
 `/usr/share/festival/voices/english/kal_diphone`. On refresh the GUI may mirror
@@ -294,7 +306,7 @@ with a genuine linguistic `/cl/` can add
 `--literal-phone-map cl_literal=cl`. Structural `cl` and authored
 `cl_literal` then coexist; the builder requires non-silence `X-cl` and `cl-X`
 source units. See
-`SPECIAL_PHONE_REALIZATION.md`.
+`docs/SPECIAL_PHONE_REALIZATION.md`.
 
 Unless `--f0` is supplied, the generated voice pitch is the measured median of
 the selected OTO scope, with zero automatic headroom. An E3-only Lem build
@@ -380,7 +392,8 @@ Japanese full-width punctuation
 splits editable phrase state without requiring whitespace, and Asaxi text is
 case-normalized before frontend processing.
 
-`festvox_gui/` provides the Windows editor for that voice: waveform selection,
+Run `python run_gui.py` to open the Windows editor in
+`src/festvox_tts/festvox_gui/`: waveform selection,
 vowel-only and indefinite `X-X` sustain stretching, generated-F0 and
 punctuation overlays, visible automatic/manual recording takes, four-part
 phrase pauses, cleaned voice-local dictionaries, and guarded voicebank removal.
@@ -466,8 +479,8 @@ extensions.
 Existing generated folders require destructive confirmations; stale
 registrations whose folders are already absent can be forgotten without any
 file deletion. The previous Song implementation has been removed; its future
-product contract is preserved in `SONG_MODE_FUTURE.md`. See `GUIDE.md` and
-`festvox_gui/README.md` for setup and use.
+product contract is preserved in `docs/SONG_MODE_FUTURE.md`. See
+`docs/GUIDE.md` and `src/festvox_tts/festvox_gui/README.md` for setup and use.
 
 Prompt 20 adds speaker-relative semitone/log-F0 handling, a Kokoro-calibrated
 Japanese pitch and duration model, automatic continuous mora voicing, and an
@@ -484,11 +497,12 @@ rejected.
 `Re-render Phonemes` preserves the current editor durations exactly; only a
 fresh Generate may replace them with a new modeled timeline. The Vocal tract
 length parameter loads its ordinary and expanded bounds from
-`profiles/reference_voice_space_v1.json`, keeps pitch and duration independent,
+`src/festvox_tts/profiles/reference_voice_space_v1.json`, keeps pitch and
+duration independent,
 and exposes final-waveform formant diagnostics. Reproduction commands,
 objective metrics, source hashes, and short held-out source-versus-synthesis
 waveform correspondence plots with per-phone duration deltas are in
-`PROMPT20_IMPLEMENTATION_REPORT.md`.
+`docs/PROMPT20_IMPLEMENTATION_REPORT.md`.
 
 Generated Festival voices now default to a deterministic UniSyn grouped audio
 cache. The builder packs generated WAV slices and pitchmarks once, Festival

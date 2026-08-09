@@ -227,7 +227,7 @@ class AsaxiFrontendTests(unittest.TestCase):
         self,
     ) -> None:
         dictionary_path = (
-            Path(__file__).resolve().parent
+            Path(af.__file__).resolve().parent
             / "dictionaries"
             / "asaxi_lexicon.json"
         )
@@ -244,7 +244,7 @@ class AsaxiFrontendTests(unittest.TestCase):
         self,
     ) -> None:
         dictionary_path = (
-            Path(__file__).resolve().parent
+            Path(af.__file__).resolve().parent
             / "dictionaries"
             / "asaxi_lexicon.json"
         )

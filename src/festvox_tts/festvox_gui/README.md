@@ -16,7 +16,7 @@ timing/pitch/intonation/recording parameter editor, multi-sentence project
 save/load, individual and batch WAV export, and diagnostic faults.
 
 ## Files
-- `../GUI_STATE_AND_SYNTHESIS.txt` - dated plain-text snapshot of the current
+- `../../../docs/GUI_STATE_AND_SYNTHESIS.txt` - dated plain-text snapshot of the current
   product state, architecture, complete synthesis pipeline, safety boundaries,
   caches, and known limitations. Start here when handing the project to a new
   development session.
@@ -27,13 +27,13 @@ save/load, individual and batch WAV export, and diagnostic faults.
 - `config.json` — all GUI settings. Written back automatically.
 - `requirements.txt` - required Python packages for synthesis, editing, and
   playback.
-- `../SONG_MODE_FUTURE.md` - retained product and MIDI-import brief for a
+- `../../../docs/SONG_MODE_FUTURE.md` - retained product and MIDI-import brief for a
   future Song implementation. Song is deliberately not part of the current
   runtime.
 
 ## Install & run (Windows)
 ```bat
-pip install -r ..\requirements.txt
+pip install -r ..\..\..\requirements.txt
 pip install sounddevice   :: optional, best playback (else winsound is used)
 pip install librosa       :: optional, higher-quality time-stretch
 python festvox_gui.py
@@ -41,7 +41,7 @@ python festvox_gui.py
 
 Run `python ..\check_environment.py` for a read-only installation report.
 Long-session resource checks are documented in
-`../docs/development/PROMPT0_LONG_TERM_PERFORMANCE.md` and run with
+`../../../docs/development/PROMPT0_LONG_TERM_PERFORMANCE.md` and run with
 `python ..\resource_soak.py`.
 
 ### Setting up the Festival/WSL engine
@@ -109,7 +109,7 @@ Japanese-only banks use `--language ja` and an explicit `cv`, `vcv`, or `cvvc`
 type. Asaxi uses `--language asaxi --bank-type arpasing`. An ARPAsing voice can
 advertise all three frontends with repeatable `--enable-language` flags and the
 default `../profiles/en-jap-mapping.yaml`. Full commands and output identity
-rules are in `../UNIFIED_VOICE_BUILDER.md`.
+rules are in `../../../docs/UNIFIED_VOICE_BUILDER.md`.
 
 The builder defaults to `--source-window-mode adaptive --source-window-ms
 120` for every language. This keeps long OTO tails out of ordinary short
@@ -788,7 +788,7 @@ their own identity, so replacing one invalidates its decoded and sliced audio.
 An unchanged voice remains hot across Generate and Re-render. WSL path-backed
 voices invalidate through Reload voicebanks, scan/re-registration, or the
 clear command. Exact owner limits, benchmark results, and safety tests are in
-`../docs/development/PROMPT0A_SYNTHESIS_EFFICIENCY.md`.
+`../../../docs/development/PROMPT0A_SYNTHESIS_EFFICIENCY.md`.
 
 Rendered waveform arrays are shared by sentence previews, phrase previews,
 Undo/Redo snapshots, duplicates, and the in-memory clipboard. Editor metadata
@@ -802,7 +802,7 @@ owner. The 64 MiB total limit is unchanged: one quarter is reserved for compact
 metadata and three quarters for choices. A newly built integrated Lem voice
 therefore remains hot across repeated renders instead of reparsing a large
 index several times. See
-`../docs/development/RUNTIME_CACHE_Q_AND_E3_2026-07-24.md`.
+`../../../docs/development/RUNTIME_CACHE_Q_AND_E3_2026-07-24.md`.
 
 Acoustic diagnostic graphs are lazy. Showing a render does not analyze joins,
 build a spectrogram, inspect source pitchmarks, or track formants. Those costs
@@ -904,7 +904,7 @@ The former Song runtime and its MIDI dependency have been removed so the
 current application has one dependable editing model. The intended future
 workflow, including one MIDI track per sentence, overlap repair, the piano
 roll, PSOLA pitch targets, and shared Speech timing, is preserved in
-`../SONG_MODE_FUTURE.md`. That document is a design brief, not a description
+`../../../docs/SONG_MODE_FUTURE.md`. That document is a design brief, not a description
 of currently available controls.
 
 ## Dictionaries and shortcuts

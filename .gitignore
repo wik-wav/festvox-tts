@@ -12,6 +12,7 @@ htmlcov/
 # Machine-local configuration
 festvox.json
 festvox_gui/config.json
+src/festvox_tts/festvox_gui/config.json
 .env
 .env.*
 
@@ -22,7 +23,7 @@ diagnostic_images/
 tmp/
 cache/
 .cache/
-native_unisyn/build/
+**/native_unisyn/build/
 *.log
 
 # Source recordings and rendered audio are not distributed with the code

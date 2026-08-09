@@ -7,6 +7,8 @@ reports live together under `docs/`; new development reports belong under
 ## Current operating documentation
 
 - `../README.md`: product scope, quick setup, and feature overview.
+- `STANDALONE_REPOSITORY_WORKFLOW.md`: canonical clone layout, ignored local
+  state, source-bank boundary, updates, verification, and normal Git commands.
 - `DEVELOPMENT_AND_IMPLEMENTATION_NOTES.md`: detailed maintainer and agent
   reference retained from the former root README.
 - `GUIDE.md`: complete UTAU-to-database and synthesis walkthrough.

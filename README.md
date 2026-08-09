@@ -272,6 +272,7 @@ For a machine-readable installation report:
 ## Documentation
 
 - [Documentation map](docs/README.md)
+- [Standalone repository workflow](docs/STANDALONE_REPOSITORY_WORKFLOW.md)
 - [Complete UTAU-to-synthesis walkthrough](docs/GUIDE.md)
 - [Unified Festival voice builder](docs/UNIFIED_VOICE_BUILDER.md)
 - [GUI manual](src/festvox_tts/festvox_gui/README.md)

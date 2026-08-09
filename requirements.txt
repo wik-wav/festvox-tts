@@ -1,1 +1,1 @@
--r festvox_gui/requirements.txt
+-r src/festvox_tts/festvox_gui/requirements.txt

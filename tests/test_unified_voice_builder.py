@@ -107,6 +107,20 @@ def _run_builder(args):
 
 
 class UnifiedVoiceBuilderTests(unittest.TestCase):
+    def test_bare_help_describes_the_primary_language_scoped_builder(self):
+        import build_festival_voice as builder
+
+        stdout = StringIO()
+        with redirect_stdout(stdout), self.assertRaises(SystemExit) as raised:
+            builder.main(["--help"])
+
+        self.assertEqual(raised.exception.code, 0)
+        help_text = stdout.getvalue()
+        self.assertIn("--language", help_text)
+        self.assertIn("--bank-type", help_text)
+        self.assertIn("--samples", help_text)
+        self.assertIn("--output", help_text)
+
     def test_generated_phone_inventory_declares_structural_cl_without_oto(self):
         import build_festival_voice as builder
 

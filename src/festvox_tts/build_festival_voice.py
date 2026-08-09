@@ -2490,7 +2490,8 @@ def _unified_main(argv=None) -> int:
 
 def main(argv=None):
     arguments = list(sys.argv[1:] if argv is None else argv)
-    if any(item in arguments for item in (
+    primary_help = arguments in (["--help"], ["-h"])
+    if primary_help or any(item in arguments for item in (
         "--language", "--samples", "--output"
     )):
         return _unified_main(arguments)

@@ -7,6 +7,8 @@ reports live together under `docs/`; new development reports belong under
 ## Current operating documentation
 
 - `../README.md`: product scope, quick setup, and feature overview.
+- `DEVELOPMENT_AND_IMPLEMENTATION_NOTES.md`: detailed maintainer and agent
+  reference retained from the former root README.
 - `GUIDE.md`: complete UTAU-to-database and synthesis walkthrough.
 - `UNIFIED_VOICE_BUILDER.md`: authoritative voice-build CLI and safety
   boundary.

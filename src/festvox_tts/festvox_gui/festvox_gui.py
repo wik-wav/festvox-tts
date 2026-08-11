@@ -67,6 +67,7 @@ pg.setConfigOptions(antialias=True)
 
 MIN_SEG = 0.010  # s, smallest phoneme duration a boundary can create
 WAVEFORM_LEFT_LIMIT = -0.25  # s, shared pre-zero panning room
+WAVEFORM_MIN_VIEW_SECONDS = MIN_SEG  # closest useful horizontal zoom
 WAVEFORM_SUMMARY_BLOCK = 16
 WAVEFORM_SUMMARY_GROWTH = 2
 WAVEFORM_RAW_SAMPLES_PER_PIXEL = 2.0
@@ -4676,6 +4677,26 @@ class IntonationTrack(TimelinePlotWidget):
 
 class StableWaveformViewBox(pg.ViewBox):
     """Keep waveform auto-fit horizontal without moving its vertical center."""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.setLimits(minXRange=WAVEFORM_MIN_VIEW_SECONDS)
+
+    def scaleBy(self, s=None, center=None, x=None, y=None):
+        """Clamp X scaling before the minimum range can shift the view."""
+        if s is not None:
+            x, y = s[0], s[1]
+        if x is not None:
+            factor = float(x)
+            span = abs(float(self.targetRect().width()))
+            if (0.0 < factor < 1.0 and math.isfinite(span) and span > 0.0):
+                if span <= WAVEFORM_MIN_VIEW_SECONDS * (1.0 + 1.0e-9):
+                    x = None
+                else:
+                    x = max(factor, WAVEFORM_MIN_VIEW_SECONDS / span)
+        if x is None and (y is None or float(y) == 1.0):
+            return
+        return super().scaleBy(center=center, x=x, y=y)
+
     def enableAutoRange(self, axis=None, enable=True, x=None, y=None):
         if x is not None or y is not None:
             if x is not None:

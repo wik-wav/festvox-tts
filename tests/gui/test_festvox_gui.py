@@ -2307,6 +2307,64 @@ class MainWindowSmokeTests(unittest.TestCase):
         self.assertGreater(left, 0.0)
         self.assertEqual(selection_moves, [])
 
+    def test_waveform_zoom_stops_at_minimum_time_span(self):
+        waveform = self.window.waveform
+        waveform.set_workspace_duration(4.0)
+        viewbox = waveform.plot.getViewBox()
+        viewbox.setXRange(0.0, 1.0, padding=0)
+
+        for _ in range(100):
+            viewbox.scaleBy((0.82, 1.0), center=(0.5, 0.0))
+        self.app.processEvents()
+
+        left, right = viewbox.viewRange()[0]
+        ruler_left, ruler_right = waveform.timeline.viewRange()[0]
+        self.assertTrue(math.isfinite(left))
+        self.assertTrue(math.isfinite(right))
+        self.assertAlmostEqual(
+            right - left, fg.WAVEFORM_MIN_VIEW_SECONDS, places=9)
+        self.assertAlmostEqual((left + right) * 0.5, 0.5, places=9)
+        self.assertAlmostEqual(ruler_left, left, places=9)
+        self.assertAlmostEqual(ruler_right, right, places=9)
+
+        capped_range = (left, right)
+        capped_scroll = waveform.hscroll.value()
+        off_center = left + (right - left) * 0.8
+        for _ in range(20):
+            viewbox.scaleBy((0.82, 1.0), center=(off_center, 0.0))
+        self.app.processEvents()
+
+        after_limit = viewbox.viewRange()[0]
+        ruler_after_limit = waveform.timeline.viewRange()[0]
+        self.assertAlmostEqual(after_limit[0], capped_range[0], places=9)
+        self.assertAlmostEqual(after_limit[1], capped_range[1], places=9)
+        self.assertAlmostEqual(
+            ruler_after_limit[0], capped_range[0], places=9)
+        self.assertAlmostEqual(
+            ruler_after_limit[1], capped_range[1], places=9)
+        self.assertEqual(waveform.hscroll.value(), capped_scroll)
+
+        viewbox.scaleBy((1.22, 1.0), center=(off_center, 0.0))
+        self.assertGreater(
+            viewbox.viewRange()[0][1] - viewbox.viewRange()[0][0],
+            fg.WAVEFORM_MIN_VIEW_SECONDS)
+
+    def test_waveform_zoom_limit_preserves_off_center_anchor(self):
+        viewbox = self.window.waveform.plot.getViewBox()
+        minimum = fg.WAVEFORM_MIN_VIEW_SECONDS
+        start = 0.25
+        span = minimum * 1.05
+        anchor_fraction = 0.8
+        anchor = start + span * anchor_fraction
+        viewbox.setXRange(start, start + span, padding=0)
+
+        viewbox.scaleBy((0.82, 1.0), center=(anchor, 0.0))
+
+        left, right = viewbox.viewRange()[0]
+        self.assertAlmostEqual(right - left, minimum, places=9)
+        self.assertAlmostEqual(
+            (anchor - left) / (right - left), anchor_fraction, places=9)
+
     def test_pitch_navigation_is_vertical_and_controls_pitch_scale(self):
         self.window.parameter_mode.setCurrentIndex(
             self.window.parameter_mode.findData("pitch"))
